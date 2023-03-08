@@ -1,0 +1,10 @@
+-- vim: set filetype=lua:
+-- ANSIBLE-MANAGED CONFIGURATION FILE
+-- Upstream Refs: https://wezfurlong.org/wezterm/config/lua/general.html
+
+local wezterm = require 'wezterm'
+return {
+  font = wezterm.font '{{ font_family }}',
+  font_size = {{ font_size }},
+}
+

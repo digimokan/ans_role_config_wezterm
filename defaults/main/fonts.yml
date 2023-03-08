@@ -1,0 +1,6 @@
+# main font-family
+font_family: 'monospace'
+
+# font size, in integer or fractional
+font_size: 13
+
