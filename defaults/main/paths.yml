@@ -1,0 +1,3 @@
+# user-specific main wezterm config dir
+wezterm_user_config_dir: "/home/{{ wezterm_user_name }}/.config/wezterm"
+

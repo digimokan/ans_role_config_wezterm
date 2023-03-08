@@ -1,0 +1,9 @@
+- name: "Install the 'wezterm' flatpak package"
+  community.general.flatpak:
+    # ref: https://wezfurlong.org/wezterm/install/linux.html#installing-on-linux-via-flathub
+    name:  org.wezfurlong.wezterm
+    remote: flathub
+    state: present
+  become: true
+  become_user: root
+
