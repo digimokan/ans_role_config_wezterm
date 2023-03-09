@@ -4,7 +4,53 @@
 
 local wezterm = require 'wezterm'
 return {
+  -----------------------------------------------------------------------------
+  -- FONTS
+  -----------------------------------------------------------------------------
+
   font = wezterm.font '{{ font_family }}',
   font_size = {{ font_size }},
+
+  -----------------------------------------------------------------------------
+  -- COLORS
+  -----------------------------------------------------------------------------
+
+  colors = {
+    foreground = '{{ wezterm_term_colors.text.fg }}',
+    background = '{{ wezterm_term_colors.background.bg }}',
+    cursor_bg = '{{ wezterm_term_colors.cursor.bg }}',
+    cursor_border = '{{ wezterm_term_colors.cursor.bg }}',
+    cursor_fg = '{{ wezterm_term_colors.cursor.fg_text }}',
+    ansi = {
+      '{{ wezterm_term_colors.black.color0_dimmed }}',
+      '{{ wezterm_term_colors.red.color1_dimmed }}',
+      '{{ wezterm_term_colors.green.color2_dimmed }}',
+      '{{ wezterm_term_colors.yellow.color3_dimmed }}',
+      '{{ wezterm_term_colors.blue.color4_dimmed }}',
+      '{{ wezterm_term_colors.magenta.color5_dimmed }}',
+      '{{ wezterm_term_colors.cyan.color6_dimmed }}',
+      '{{ wezterm_term_colors.white.color7_dimmed }}',
+    },
+    brights = {
+      '{{ wezterm_term_colors.black.color8_bright }}',
+      '{{ wezterm_term_colors.red.color9_bright }}',
+      '{{ wezterm_term_colors.green.color10_bright }}',
+      '{{ wezterm_term_colors.yellow.color11_bright }}',
+      '{{ wezterm_term_colors.blue.color12_bright }}',
+      '{{ wezterm_term_colors.magenta.color13_bright }}',
+      '{{ wezterm_term_colors.cyan.color14_bright }}',
+      '{{ wezterm_term_colors.white.color15_bright }}',
+    },
+
+    selection_fg = 'black',
+    -- the background color of selected text
+    selection_bg = '#fffacd',
+
+    -- The color of the split lines between panes
+    split = '#444444',
+
+    -- The color of the scrollbar "thumb"; the portion that represents the current viewport
+    scrollbar_thumb = '#222222',
+  },
 }
 
