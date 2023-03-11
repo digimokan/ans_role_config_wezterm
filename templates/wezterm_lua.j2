@@ -3,7 +3,9 @@
 -- Upstream Refs: https://wezfurlong.org/wezterm/config/lua/general.html
 
 local wezterm = require 'wezterm'
+
 return {
+
   -----------------------------------------------------------------------------
   -- FONTS
   -----------------------------------------------------------------------------
@@ -54,6 +56,12 @@ return {
   },
 
   window_background_opacity = {{ wezterm_term_colors.background.opacity }},
+
+  -----------------------------------------------------------------------------
+  -- UI
+  -----------------------------------------------------------------------------
+
+  audible_bell = "{{ 'SystemBeep' if audio_bell_enable else 'Disabled' }}",
 
 }
 
