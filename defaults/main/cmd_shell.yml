@@ -1,0 +1,13 @@
+# shell command to start in the terminal emulator
+shell_cmd: '/bin/sh'
+
+# command to execute to start wezterm
+wezterm_main_cmd: 'wezterm start'
+
+# arg to wezterm command to start wezterm in a specified directory
+wezterm_arg_starting_dir: "--cwd "
+
+# arg to wezterm command to execute a specific prog/cmd immediately on start
+# NOTE: make sure this arg goes last
+wezterm_arg_exec: "-- {{ shell_cmd }} -c "
+
