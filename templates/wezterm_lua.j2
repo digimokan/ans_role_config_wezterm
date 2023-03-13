@@ -105,7 +105,7 @@ return {
 
     -- Copy/Paste
     { key = 'C', mods = 'SHIFT|CTRL', action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection' },
-    { key = 'V', mods = 'SHIFT|CTRL', action = wezterm.action.PasteFrom 'ClipboardAndPrimarySelection' },
+    { key = 'V', mods = 'SHIFT|CTRL', action = wezterm.action.PasteFrom 'Clipboard' },
 
     -- Quick-Select Mode?
     { key = 'phys:Space', mods = 'CTRL', action = wezterm.action.QuickSelect },
