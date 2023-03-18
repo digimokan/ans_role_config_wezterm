@@ -1,0 +1,11 @@
+# refs:
+#   https://wezfurlong.org/wezterm/config/default-keys.html
+#   https://wezfurlong.org/wezterm/config/keys.html
+#   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
+
+# copy the currently-selected text to the clipboard, and to "PRIMARY" selection
+keymap_copy_sel_to_clipboard: { mod: 'SHIFT|CTRL', key: 'C' }
+
+# paste text from the clipboard to the current cursor position
+keymap_paste_from_clipboard: { mod: 'SHIFT|CTRL', key: 'V' }
+

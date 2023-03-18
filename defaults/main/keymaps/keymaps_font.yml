@@ -1,0 +1,14 @@
+# refs:
+#   https://wezfurlong.org/wezterm/config/default-keys.html
+#   https://wezfurlong.org/wezterm/config/keys.html
+#   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
+
+# increase the font size by one point
+keymap_inc_font_size: { mod: 'CTRL', key: '=' }
+
+# decrease the font size by one point
+keymap_dec_font_size: { mod: 'CTRL', key: '-' }
+
+# reset the font size to the original, default value
+keymap_reset_font_size: { mod: 'CTRL', key: '0' }
+
