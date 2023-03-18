@@ -1,0 +1,16 @@
+# refs:
+#   https://wezfurlong.org/wezterm/config/default-keys.html
+#   https://wezfurlong.org/wezterm/config/keys.html
+#   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
+
+# main font-family
+font_family: 'monospace'
+
+# font size, in integer or fractional
+font_size: 13
+
+# increase/decrease the font size by one point, or reset-font-size-to-default
+keymap_inc_font_size: { mod: 'CTRL', key: '=' }
+keymap_dec_font_size: { mod: 'CTRL', key: '-' }
+keymap_reset_font_size: { mod: 'CTRL', key: '0' }
+

@@ -1,8 +1,0 @@
-# refs:
-#   https://wezfurlong.org/wezterm/config/default-keys.html
-#   https://wezfurlong.org/wezterm/config/keys.html
-#   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
-
-# enter quick-select mode
-keymap_enter_quick_select_mode: { mod: 'CTRL', key: 's' }
-

@@ -3,10 +3,8 @@
 #   https://wezfurlong.org/wezterm/config/keys.html
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 
-# scroll up in the scrollback buffer by one page
+# scroll up/down in the scrollback buffer by one page
 keymap_scrollback_page_up: { mod: 'SHIFT', key: 'PageUp' }
-
-# scroll down in the scrollback buffer by one page
 keymap_scrollback_page_down: { mod: 'SHIFT', key: 'PageDown' }
 
 # clear the entire scrollback buffer

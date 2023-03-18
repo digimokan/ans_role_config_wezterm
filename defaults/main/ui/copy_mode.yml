@@ -2,7 +2,8 @@
 #   https://wezfurlong.org/wezterm/config/default-keys.html
 #   https://wezfurlong.org/wezterm/config/keys.html
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
+#   https://wezfurlong.org/wezterm/copymode.html
 
-# enter search mode
+# enter copy mode
 keymap_enter_copy_mode: { mod: 'CTRL', key: 'm' }
 

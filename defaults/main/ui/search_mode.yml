@@ -2,6 +2,7 @@
 #   https://wezfurlong.org/wezterm/config/default-keys.html
 #   https://wezfurlong.org/wezterm/config/keys.html
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
+#   https://wezfurlong.org/wezterm/scrollback.html#searching-the-scrollback
 
 # enter search mode
 keymap_enter_search_mode: { mod: 'CTRL', key: 'f' }

@@ -6,16 +6,12 @@
 # create a new tab, to the right of the current tab, and switch to it
 keymap_create_new_tab: { mod: 'CTRL', key: 't' }
 
-# go to next tab (i.e. tab to the "right")
+# go to next/prev tab (i.e. tab to the "right/left")
 keymap_next_tab: { mod: 'CTRL', key: '.' }
-
-# go to previous tab (i.e. tab to the "left")
 keymap_prev_tab: { mod: 'CTRL', key: ',' }
 
-# move the current tab to the right
+# move the current tab to the right/left
 keymap_move_tab_right: { mod: 'SHIFT|CTRL', key: '>' }
-
-# move the current tab to the left
 keymap_move_tab_left: { mod: 'SHIFT|CTRL', key: '<' }
 
 # kill the current tab, and all processes running in it
