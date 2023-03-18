@@ -119,8 +119,8 @@ return {
     -- Search Mode?
 
     { key = 'f', mods = 'CTRL', action = wezterm.action.Search 'CurrentSelectionOrEmptyString' },
-    { key = 'U', mods = 'CTRL', action = wezterm.action.CharSelect{ copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection' } },
-    { key = 'U', mods = 'SHIFT|CTRL', action = wezterm.action.CharSelect{ copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection' } },
+    -- { key = 'U', mods = 'CTRL', action = wezterm.action.CharSelect{ copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection' } },
+    -- { key = 'U', mods = 'SHIFT|CTRL', action = wezterm.action.CharSelect{ copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection' } },
 
     -- Copy Mode?
     { key = 'm', mods = 'CTRL', action = wezterm.action.ActivateCopyMode },
@@ -131,13 +131,14 @@ return {
 
     -- Keymaps In Search Mode
     search_mode = {
-      { key = 'j', mods = 'NONE', action = wezterm.action.CopyMode 'NextMatch' },
-      { key = 'k', mods = 'NONE', action = wezterm.action.CopyMode 'PriorMatch' },
-      { key = 'Escape', mods = 'NONE', action = wezterm.action.CopyMode 'Close' },
-      { key = 'r', mods = 'CTRL', action = wezterm.action.CopyMode 'CycleMatchType' },
-      { key = 'u', mods = 'CTRL', action = wezterm.action.CopyMode 'ClearPattern' },
+      { key = 'DownArrow', mods = 'NONE', action = wezterm.action.CopyMode 'NextMatch' },
+      { key = 'UpArrow', mods = 'NONE', action = wezterm.action.CopyMode 'PriorMatch' },
       { key = 'PageUp', mods = 'NONE', action = wezterm.action.CopyMode 'PriorMatchPage' },
       { key = 'PageDown', mods = 'NONE', action = wezterm.action.CopyMode 'NextMatchPage' },
+      { key = 'r', mods = 'CTRL', action = wezterm.action.CopyMode 'CycleMatchType' },
+      { key = 'f', mods = 'CTRL', action = wezterm.action.CopyMode 'ClearPattern' },
+      { key = 'y', mods = 'CTRL', action = wezterm.action.CopyMode{ CopyTo =  'ClipboardAndPrimarySelection' } },
+      { key = 'Escape', mods = 'NONE', action = wezterm.action.CopyMode 'Close' },
     },
 
     -- Keymaps In Copy Mode
