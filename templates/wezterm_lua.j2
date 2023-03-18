@@ -137,7 +137,7 @@ return {
       { key = 'PageDown', mods = 'NONE', action = wezterm.action.CopyMode 'NextMatchPage' },
       { key = 'r', mods = 'CTRL', action = wezterm.action.CopyMode 'CycleMatchType' },
       { key = 'f', mods = 'CTRL', action = wezterm.action.CopyMode 'ClearPattern' },
-      { key = 'y', mods = 'CTRL', action = wezterm.action.CopyMode{ CopyTo =  'ClipboardAndPrimarySelection' } },
+      { key = 'y', mods = 'CTRL', action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection' },
       { key = 'Escape', mods = 'NONE', action = wezterm.action.CopyMode 'Close' },
     },
 
