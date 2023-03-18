@@ -3,6 +3,7 @@
 -- Upstream Refs: https://wezfurlong.org/wezterm/config/lua/general.html
 
 local wezterm = require "wezterm"
+local act = wezterm.action
 
 return {
 
@@ -78,19 +79,16 @@ return {
   -- clear all existing/default keymaps
   disable_default_key_bindings = true,
 
-
   keys = {
-
-    act = wezterm.action,
 
     -- Tabs
 
     { key = '{{ keymap_create_new_tab.key }}', mods = '{{ keymap_create_new_tab.mod }}', action = act.SpawnTab 'CurrentPaneDomain' },
-    { key = '.', mods = 'CTRL', action = act.ActivateTabRelative(1) },
-    { key = ',', mods = 'CTRL', action = act.ActivateTabRelative(-1) },
-    { key = '>', mods = 'SHIFT|CTRL', action = act.MoveTabRelative(1) },
-    { key = '<', mods = 'SHIFT|CTRL', action = act.MoveTabRelative(-1) },
-    { key = 'x', mods = 'CTRL', action = act.CloseCurrentTab{ confirm = false } },
+    { key = '{{ keymap_next_tab.key }}', mods = '{{ keymap_next_tab.mod }}', action = act.ActivateTabRelative(1) },
+    { key = '{{ keymap_prev_tab.key }}', mods = '{{ keymap_prev_tab.mod }}', action = act.ActivateTabRelative(-1) },
+    { key = '{{ keymap_move_tab_right.key }}', mods = '{{ keymap_move_tab_right.mod }}', action = act.MoveTabRelative(1) },
+    { key = '{{ keymap_move_tab_left.key }}', mods = '{{ keymap_move_tab_left.mod }}', action = act.MoveTabRelative(-1) },
+    { key = '{{ keymap_kill_tab.key }}', mods = '{{ keymap_kill_tab.mod }}', action = act.CloseCurrentTab{ confirm = false } },
 
     -- Panes
 
