@@ -1,0 +1,8 @@
+# refs:
+#   https://wezfurlong.org/wezterm/config/default-keys.html
+#   https://wezfurlong.org/wezterm/config/keys.html
+#   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
+
+# enter search mode
+keymap_enter_copy_mode: { mod: 'CTRL', key: 'm' }
+

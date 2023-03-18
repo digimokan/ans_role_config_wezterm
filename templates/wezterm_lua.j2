@@ -111,19 +111,19 @@ return {
     { key = '{{ keymap_paste_from_clipboard.key }}', mods = '{{ keymap_paste_from_clipboard.mod }}', action = act.PasteFrom 'Clipboard' },
 
     -- Screen And Scrollback
-    { key = 'PageUp', mods = 'SHIFT', action = act.ScrollByPage(-1) },
-    { key = 'PageDown', mods = 'SHIFT', action = act.ScrollByPage(1) },
-    { key = 'u', mods = 'CTRL', action = act.ClearScrollback 'ScrollbackAndViewport' },
+    { key = '{{ keymap_scrollback_page_up.key }}', mods = '{{ keymap_scrollback_page_up.mod }}', action = act.ScrollByPage(-1) },
+    { key = '{{ keymap_scrollback_page_down.key }}', mods = '{{ keymap_scrollback_page_down.mod }}', action = act.ScrollByPage(1) },
+    { key = '{{ keymap_scrollback_clear.key }}', mods = '{{ keymap_scrollback_clear.mod }}', action = act.ClearScrollback 'ScrollbackAndViewport' },
 
     -- Enter Quick-Select Mode
-    { key = 's', mods = 'CTRL', action = act.QuickSelect },
+    { key = '{{ keymap_enter_quick_select_mode.key }}', mods = '{{ keymap_enter_quick_select_mode.mod }}', action = act.QuickSelect },
 
     -- Enter Search Mode
 
-    { key = 'f', mods = 'CTRL', action = act.Search 'CurrentSelectionOrEmptyString' },
+    { key = '{{ keymap_enter_search_mode.key }}', mods = '{{ keymap_enter_search_mode.mod }}', action = act.Search 'CurrentSelectionOrEmptyString' },
 
     -- Enter Copy Mode
-    { key = 'm', mods = 'CTRL', action = act.ActivateCopyMode },
+    { key = '{{ keymap_enter_copy_mode.key }}', mods = '{{ keymap_enter_copy_mode.mod }}', action = act.ActivateCopyMode },
 
   },
 
