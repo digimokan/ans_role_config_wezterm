@@ -3,3 +3,6 @@
 #   https://wezfurlong.org/wezterm/config/keys.html
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 
+# create a new tab, to the right of the current tab
+keymap_create_new_tab: { mod: 'CTRL', key: 't' }
+
