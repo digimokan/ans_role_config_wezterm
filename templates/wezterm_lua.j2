@@ -73,6 +73,13 @@ return {
   audible_bell = "{{ 'SystemBeep' if audio_bell_enable else 'Disabled' }}",
 
   -----------------------------------------------------------------------------
+  -- QUICK-SELECT MODE
+  -----------------------------------------------------------------------------
+
+  quick_select_patterns = { "{{ quick_select_search_pattern }}" },
+  quick_select_alphabet = "{{ quick_select_hint_keys }}",
+
+  -----------------------------------------------------------------------------
   -- KEYMAPS
   -----------------------------------------------------------------------------
 
@@ -107,15 +114,18 @@ return {
     { key = '{{ keymap_reset_font_size.key }}', mods = '{{ keymap_reset_font_size.mod }}', action = act.ResetFontSize },
 
     -- Copy/Paste
+
     { key = '{{ keymap_copy_sel_to_clipboard.key }}', mods = '{{ keymap_copy_sel_to_clipboard.mod }}', action = act.CopyTo 'ClipboardAndPrimarySelection' },
     { key = '{{ keymap_paste_from_clipboard.key }}', mods = '{{ keymap_paste_from_clipboard.mod }}', action = act.PasteFrom 'Clipboard' },
 
     -- Screen And Scrollback
+
     { key = '{{ keymap_scrollback_page_up.key }}', mods = '{{ keymap_scrollback_page_up.mod }}', action = act.ScrollByPage(-1) },
     { key = '{{ keymap_scrollback_page_down.key }}', mods = '{{ keymap_scrollback_page_down.mod }}', action = act.ScrollByPage(1) },
     { key = '{{ keymap_scrollback_clear.key }}', mods = '{{ keymap_scrollback_clear.mod }}', action = act.ClearScrollback 'ScrollbackAndViewport' },
 
     -- Enter Quick-Select Mode
+
     { key = '{{ keymap_enter_quick_select_mode.key }}', mods = '{{ keymap_enter_quick_select_mode.mod }}', action = act.QuickSelect },
 
     -- Enter Search Mode
@@ -123,6 +133,7 @@ return {
     { key = '{{ keymap_enter_search_mode.key }}', mods = '{{ keymap_enter_search_mode.mod }}', action = act.Search 'CurrentSelectionOrEmptyString' },
 
     -- Enter Copy Mode
+
     { key = '{{ keymap_enter_copy_mode.key }}', mods = '{{ keymap_enter_copy_mode.mod }}', action = act.ActivateCopyMode },
 
   },

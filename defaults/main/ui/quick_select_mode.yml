@@ -1,0 +1,10 @@
+# refs:
+#   https://wezfurlong.org/wezterm/quickselect.html
+
+# on quick-select mode enter, it searches screen for this hard-coded pattern
+# NOTE: this pattern matches SHA-1 hashes
+quick_select_search_pattern: '[0-9a-f]{7,40}'
+
+# each search hit is overlayed with hint keys, for copying a hit to clipboard
+quick_select_hint_keys: 'asdfjklgh'
+
