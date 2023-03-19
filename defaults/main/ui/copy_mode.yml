@@ -35,5 +35,5 @@ keymap_copy_mode_select_goto_ends: { mod: 'NONE', key: 'o' }
 keymap_copy_mode_copy_sel_to_clip: { mod: 'NONE', key: 'y' }
 
 # exit copy mode
-keymap_copy_mode_exit: { mod: 'Escape', key: 'h' }
+keymap_copy_mode_exit: { mod: 'NONE', key: 'Escape' }
 
