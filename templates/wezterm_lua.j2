@@ -142,14 +142,14 @@ return {
 
     -- Keymaps In Search Mode
     search_mode = {
-      { key = 'DownArrow', mods = 'NONE', action = act.CopyMode 'NextMatch' },
-      { key = 'UpArrow', mods = 'NONE', action = act.CopyMode 'PriorMatch' },
-      { key = 'PageUp', mods = 'NONE', action = act.CopyMode 'PriorMatchPage' },
-      { key = 'PageDown', mods = 'NONE', action = act.CopyMode 'NextMatchPage' },
-      { key = 'r', mods = 'CTRL', action = act.CopyMode 'CycleMatchType' },
-      { key = 'f', mods = 'CTRL', action = act.CopyMode 'ClearPattern' },
-      { key = 'c', mods = 'CTRL', action = act.CopyTo 'ClipboardAndPrimarySelection' },
-      { key = 'Escape', mods = 'NONE', action = act.CopyMode 'Close' },
+      { key = '{{ keymap_next_search_hit.key }}', mods = '{{ keymap_next_search_hit.mod }}', action = act.CopyMode 'NextMatch' },
+      { key = '{{ keymap_prev_search_hit.key }}', mods = '{{ keymap_prev_search_hit.mod }}', action = act.CopyMode 'PriorMatch' },
+      { key = '{{ keymap_next_search_page.key }}', mods = '{{ keymap_next_search_page.mod }}', action = act.CopyMode 'NextMatchPage' },
+      { key = '{{ keymap_prev_search_page.key }}', mods = '{{ keymap_prev_search_page.mod }}', action = act.CopyMode 'PriorMatchPage' },
+      { key = '{{ keymap_cycle_search_type.key }}', mods = '{{ keymap_cycle_search_type.mod }}', action = act.CopyMode 'CycleMatchType' },
+      { key = '{{ keymap_enter_search_mode.key }}', mods = '{{ keymap_enter_search_mode.mod }}', action = act.CopyMode 'ClearPattern' },
+      { key = '{{ keymap_copy_search_hit_to_clipboard.key }}', mods = '{{ keymap_copy_search_hit_to_clipboard.mod }}', action = act.CopyTo 'ClipboardAndPrimarySelection' },
+      { key = '{{ keymap_exit_search_mode.key }}', mods = '{{ keymap_exit_search_mode.mod }}', action = act.CopyMode 'Close' },
     },
 
     -- Keymaps In Copy Mode

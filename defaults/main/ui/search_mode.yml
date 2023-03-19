@@ -4,6 +4,24 @@
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 #   https://wezfurlong.org/wezterm/scrollback.html#searching-the-scrollback
 
-# enter search mode
+# enter search mode, and highlight search hits
+# NOTE: typing this again, in search mode, effectively clears the search text
 keymap_enter_search_mode: { mod: 'CTRL', key: 'f' }
+
+# go to next/prev highlighted search hit
+keymap_next_search_hit: { mod: 'NONE', key: 'DownArrow' }
+keymap_prev_search_hit: { mod: 'NONE', key: 'UpArrow' }
+
+# go to next/prev search-hit page in the scrollback
+keymap_next_search_page: { mod: 'NONE', key: 'PageDown' }
+keymap_prev_search_page: { mod: 'NONE', key: 'PageUp' }
+
+# cycle through the search-type (case-sensitive, ignore-case, regex)
+keymap_cycle_search_type: { mod: 'CTRL', key: 'r' }
+
+# copy the highlighted search hit to the clipboard
+keymap_copy_search_hit_to_clipboard: { mod: 'CTRL', key: 'c' }
+
+# exit search mode
+keymap_exit_search_mode: { mod: 'NONE', key: 'Escape' }
 
