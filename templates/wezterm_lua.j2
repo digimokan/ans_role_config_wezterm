@@ -6,17 +6,35 @@ local wezterm = require "wezterm"
 local act = wezterm.action
 
 -----------------------------------------------------------------------------
+-- GRAB-SHELL-CMD-STDOUT-INTO-VAR UTILITY FUNCTION
+-----------------------------------------------------------------------------
+
+function os.capture(cmd, raw)
+  local f = assert(io.popen(cmd, 'r'))
+  local s = assert(f:read('*a'))
+  f:close()
+  -- return unmodified stdout from the cmd
+  if raw then return s end
+  -- return stripped cmd stdout, as it would appear with $(cmd)
+  s = string.gsub(s, '^%s+', '')
+  s = string.gsub(s, '%s+$', '')
+  s = string.gsub(s, '[\n\r]+', ' ')
+  return s
+end
+
+-----------------------------------------------------------------------------
 -- TAB-BAR "STATUS-LINE" AREAS
 -----------------------------------------------------------------------------
 
 wezterm.on('update-right-status', function(window, pane)
   -- local date = wezterm.strftime '%Y-%m-%d %H:%M:%S'
+  local git_branch = os.capture({{ tab_bar_get_git_branch_cmd }})
 
   -- Make it italic and underlined
   window:set_right_status(wezterm.format {
     -- { Attribute = { Underline = 'Single' } },
     -- { Attribute = { Italic = true } },
-    { Text = 'Hello' },
+    { Text = git_branch },
   })
 end)
 
