@@ -3,6 +3,9 @@
 #   https://wezfurlong.org/wezterm/config/keys.html
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 
+# a command to run to get the current VCS branch, for tab-bar statusline
+tab_bar_get_git_branch_cmd: "printf ''"
+
 # create a new tab, to the right of the current tab, and switch to it
 keymap_create_new_tab: { mod: 'CTRL', key: 't' }
 

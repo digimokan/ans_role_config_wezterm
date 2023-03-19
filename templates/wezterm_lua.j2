@@ -5,6 +5,21 @@
 local wezterm = require "wezterm"
 local act = wezterm.action
 
+-----------------------------------------------------------------------------
+-- TAB-BAR "STATUS-LINE" AREAS
+-----------------------------------------------------------------------------
+
+wezterm.on('update-right-status', function(window, pane)
+  -- local date = wezterm.strftime '%Y-%m-%d %H:%M:%S'
+
+  -- Make it italic and underlined
+  window:set_right_status(wezterm.format {
+    -- { Attribute = { Underline = 'Single' } },
+    -- { Attribute = { Italic = true } },
+    { Text = 'Hello' },
+  })
+end)
+
 return {
 
   -----------------------------------------------------------------------------
@@ -67,7 +82,7 @@ return {
   window_background_opacity = {{ wezterm_term_colors.background.opacity }},
 
   -----------------------------------------------------------------------------
-  -- UI
+  -- ALERTS
   -----------------------------------------------------------------------------
 
   audible_bell = "{{ 'SystemBeep' if audio_bell_enable else 'Disabled' }}",
