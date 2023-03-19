@@ -6,29 +6,28 @@ local wezterm = require "wezterm"
 local act = wezterm.action
 
 -----------------------------------------------------------------------------
--- GRAB-SHELL-CMD-STDOUT-INTO-VAR UTILITY FUNCTION
------------------------------------------------------------------------------
-
-function os.capture(cmd, raw)
-  local f = assert(io.popen(cmd, 'r'))
-  local s = assert(f:read('*a'))
-  f:close()
-  -- return unmodified stdout from the cmd
-  if raw then return s end
-  -- return stripped cmd stdout, as it would appear with $(cmd)
-  s = string.gsub(s, '^%s+', '')
-  s = string.gsub(s, '%s+$', '')
-  s = string.gsub(s, '[\n\r]+', ' ')
-  return s
-end
-
------------------------------------------------------------------------------
 -- TAB-BAR "STATUS-LINE" AREAS
 -----------------------------------------------------------------------------
 
 wezterm.on('update-right-status', function(window, pane)
-  -- local date = wezterm.strftime '%Y-%m-%d %H:%M:%S'
-  local git_branch = os.capture({{ tab_bar_get_git_branch_cmd }})
+  -- get the pane working dir and hostname
+  local cwd = "none"
+  local hostname = ""
+  local cwd_uri = pane:get_current_working_dir()
+  if cwd_uri then
+    cwd_uri = cwd_uri:sub(8);
+    local slash = cwd_uri:find("/")
+    if slash then
+      hostname = cwd_uri:sub(1, slash-1)
+      local dot = hostname:find("[.]")
+      if dot then
+        hostname = hostname:sub(1, dot-1)
+      end
+      cwd = cwd_uri:sub(slash)
+    end
+  end
+
+  local success, git_branch, stderr = wezterm.run_child_process { '{{ tab_bar_get_git_branch_cmd }}', cwd }
 
   -- Make it italic and underlined
   window:set_right_status(wezterm.format {
