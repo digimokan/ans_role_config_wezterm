@@ -19,7 +19,7 @@ return {
 
   font = wezterm.font "{{ font_family }}",
   font_size = {{ font_size }},
-  adjust_window_size_when_changing_font_size = false,
+  adjust_window_size_when_changing_font_size = {{ adj_window_size_on_font_size_change }},
 
   -----------------------------------------------------------------------------
   -- COLORS
@@ -154,28 +154,28 @@ return {
 
     -- Keymaps In Copy Mode
     copy_mode = {
-      { key = 'h', mods = 'NONE', action = act.CopyMode 'MoveLeft' },
-      { key = 'j', mods = 'NONE', action = act.CopyMode 'MoveDown' },
-      { key = 'k', mods = 'NONE', action = act.CopyMode 'MoveUp' },
-      { key = 'l', mods = 'NONE', action = act.CopyMode 'MoveRight' },
-      { key = 'w', mods = 'NONE', action = act.CopyMode 'MoveForwardWord' },
-      { key = 'b', mods = 'NONE', action = act.CopyMode 'MoveBackwardWord' },
-      { key = '0', mods = 'NONE', action = act.CopyMode 'MoveToStartOfLine' },
-      { key = 'Enter', mods = 'NONE', action = act.CopyMode 'MoveToStartOfNextLine' },
-      { key = '-', mods = 'NONE', action = act.CopyMode 'MoveToEndOfLineContent' },
-      { key = 'PageUp', mods = 'NONE', action = act.CopyMode 'PageUp' },
-      { key = 'PageDown', mods = 'NONE', action = act.CopyMode 'PageDown' },
-      { key = 'H', mods = 'SHIFT', action = act.CopyMode 'MoveToViewportTop' },
-      { key = 'M', mods = 'SHIFT', action = act.CopyMode 'MoveToViewportMiddle' },
-      { key = 'L', mods = 'SHIFT', action = act.CopyMode 'MoveToViewportBottom' },
-      { key = 'g', mods = 'NONE', action = act.CopyMode 'MoveToScrollbackTop' },
-      { key = 'G', mods = 'SHIFT', action = act.CopyMode 'MoveToScrollbackBottom' },
-      { key = 'V', mods = 'SHIFT', action = act.CopyMode{ SetSelectionMode = 'Line' } },
-      { key = 'v', mods = 'NONE', action = act.CopyMode{ SetSelectionMode =  'Cell' } },
-      { key = 'v', mods = 'CTRL', action = act.CopyMode{ SetSelectionMode =  'Block' } },
-      { key = 'o', mods = 'NONE', action = act.CopyMode 'MoveToSelectionOtherEnd' },
-      { key = 'y', mods = 'NONE', action = act.Multiple{ { CopyTo =  'ClipboardAndPrimarySelection' }, { CopyMode =  'Close' } } },
-      { key = 'Escape', mods = 'NONE', action = act.CopyMode 'Close' },
+      { key = '{{ keymap_copy_mode_left.key }}', mods = '{{ keymap_copy_mode_left.mod }}', action = act.CopyMode 'MoveLeft' },
+      { key = '{{ keymap_copy_mode_right.key }}', mods = '{{ keymap_copy_mode_right.mod }}', action = act.CopyMode 'MoveRight' },
+      { key = '{{ keymap_copy_mode_down.key }}', mods = '{{ keymap_copy_mode_down.mod }}', action = act.CopyMode 'MoveDown' },
+      { key = '{{ keymap_copy_mode_up.key }}', mods = '{{ keymap_copy_mode_up.mod }}', action = act.CopyMode 'MoveUp' },
+      { key = '{{ keymap_copy_mode_next_word_start.key }}', mods = '{{ keymap_copy_mode_next_word_start.mod }}', action = act.CopyMode 'MoveForwardWord' },
+      { key = '{{ keymap_copy_mode_prev_word_start.key }}', mods = '{{ keymap_copy_mode_prev_word_start.mod }}', action = act.CopyMode 'MoveBackwardWord' },
+      { key = '{{ keymap_copy_mode_line_start.key }}', mods = '{{ keymap_copy_mode_line_start.mod }}', action = act.CopyMode 'MoveToStartOfLine' },
+      { key = '{{ keymap_copy_mode_next_line_start.key }}', mods = '{{ keymap_copy_mode_next_line_start.mod }}', action = act.CopyMode 'MoveToStartOfNextLine' },
+      { key = '{{ keymap_copy_mode_line_end.key }}', mods = '{{ keymap_copy_mode_line_end.mod }}', action = act.CopyMode 'MoveToEndOfLineContent' },
+      { key = '{{ keymap_copy_mode_next_page.key }}', mods = '{{ keymap_copy_mode_next_page.mod }}', action = act.CopyMode 'PageDown' },
+      { key = '{{ keymap_copy_mode_prev_page.key }}', mods = '{{ keymap_copy_mode_prev_page.mod }}', action = act.CopyMode 'PageUp' },
+      { key = '{{ keymap_copy_mode_screen_top.key }}', mods = '{{ keymap_copy_mode_screen_top.mod }}', action = act.CopyMode 'MoveToViewportTop' },
+      { key = '{{ keymap_copy_mode_screen_middle.key }}', mods = '{{ keymap_copy_mode_screen_middle.mod }}', action = act.CopyMode 'MoveToViewportMiddle' },
+      { key = '{{ keymap_copy_mode_screen_end.key }}', mods = '{{ keymap_copy_mode_screen_end.mod }}', action = act.CopyMode 'MoveToViewportBottom' },
+      { key = '{{ keymap_copy_mode_scrollback_start.key }}', mods = '{{ keymap_copy_mode_scrollback_start.mod }}', action = act.CopyMode 'MoveToScrollbackTop' },
+      { key = '{{ keymap_copy_mode_scrollback_end.key }}', mods = '{{ keymap_copy_mode_scrollback_end.mod }}', action = act.CopyMode 'MoveToScrollbackBottom' },
+      { key = '{{ keymap_copy_mode_select_chars.key }}', mods = '{{ keymap_copy_mode_select_chars.mod }}', action = act.CopyMode{ SetSelectionMode =  'Cell' } },
+      { key = '{{ keymap_copy_mode_select_line.key }}', mods = '{{ keymap_copy_mode_select_line.mod }}', action = act.CopyMode{ SetSelectionMode = 'Line' } },
+      { key = '{{ keymap_copy_mode_select_block.key }}', mods = '{{ keymap_copy_mode_select_block.mod }}', action = act.CopyMode{ SetSelectionMode =  'Block' } },
+      { key = '{{ keymap_copy_mode_select_goto_ends.key }}', mods = '{{ keymap_copy_mode_select_goto_ends.mod }}', action = act.CopyMode 'MoveToSelectionOtherEnd' },
+      { key = '{{ keymap_copy_mode_copy_sel_to_clip.key }}', mods = '{{ keymap_copy_mode_copy_sel_to_clip.mod }}', action = act.Multiple{ { CopyTo =  'ClipboardAndPrimarySelection' }, { CopyMode =  'Close' } } },
+      { key = '{{ keymap_copy_mode_exit.key }}', mods = '{{ keymap_copy_mode_exit.mod }}', action = act.CopyMode 'Close' },
 
     }, -- key_tables
 
@@ -186,7 +186,7 @@ return {
   -----------------------------------------------------------------------------
 
   -- whether to check for updates to the wezterm application
-  check_for_updates = false,
+  check_for_updates = {{ check_for_wezterm_updates }},
 
 } -- return
 
