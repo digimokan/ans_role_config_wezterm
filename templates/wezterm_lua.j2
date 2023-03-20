@@ -27,7 +27,11 @@ wezterm.on('update-right-status', function(window, pane)
     end
   end
 
-  local success, git_branch, stderr = wezterm.run_child_process { '{{ tab_bar_get_git_branch_cmd }}', cwd }
+  local success, stdout, stderr = wezterm.run_child_process { '{{ tab_bar_get_git_branch_cmd }}', cwd }
+  local git_branch = ""
+  if success then
+    git_branch = " " .. stdout .. " "
+  end
 
   -- Make it italic and underlined
   window:set_right_status(wezterm.format {
