@@ -33,11 +33,11 @@ wezterm.on('update-right-status', function(window, pane)
     git_branch = " " .. stdout .. " "
   end
 
-  -- Make it italic and underlined
   window:set_right_status(wezterm.format {
-    -- { Attribute = { Underline = 'Single' } },
-    -- { Attribute = { Italic = true } },
+    { Foreground = { Color = '{{ status_vcs_branch.fg_text }}' } },
+    { Background = { Color = '{{ status_vcs_branch.bg }}' } },
     { Text = git_branch },
+    'ResetAttributes',
   })
 end)
 
