@@ -106,25 +106,17 @@ return {
 
     tab_bar = {
 
-      background = '{{ wezterm_term_colors.black.color8_bright }}',
+      background = '{{ wezterm_term_colors.status_area.bg }}',
 
       active_tab = {
         bg_color = '{{ wezterm_term_colors.status_active_tab.bg }}',
         fg_color = '{{ wezterm_term_colors.status_active_tab.fg_text }}',
-        intensity = 'Normal',
+        intensity = 'Bold',
       },
 
       inactive_tab = {
         bg_color = '{{ wezterm_term_colors.status_inactive_tabs.bg }}',
         fg_color = '{{ wezterm_term_colors.status_inactive_tabs.fg_text }}',
-      },
-
-      -- You can configure some alternate styling when the mouse pointer
-      -- moves over inactive tabs
-      inactive_tab_hover = {
-        bg_color = '#3b3052',
-        fg_color = '#909090',
-        italic = true,
       },
 
     }, -- tab_bar
