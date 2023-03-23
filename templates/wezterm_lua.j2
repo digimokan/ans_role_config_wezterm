@@ -11,16 +11,16 @@ local act = wezterm.action
 
 wezterm.on('update-right-status', function(window, pane)
   -- get the pane working dir and hostname
-  local cwd = "none"
-  local full_hostname = ""
-  local hostname = ""
+  local cwd = 'none'
+  local full_hostname = ''
+  local hostname = ''
   local cwd_uri = pane:get_current_working_dir()
   if cwd_uri then
     cwd_uri = cwd_uri:sub(8);
-    local slash = cwd_uri:find("/")
+    local slash = cwd_uri:find('/')
     if slash then
       full_hostname = cwd_uri:sub(1, slash-1)
-      local dot = hostname:find("[.]")
+      local dot = hostname:find('[.]')
       if dot then
         hostname = hostname:sub(1, dot-1)
       end
@@ -29,9 +29,9 @@ wezterm.on('update-right-status', function(window, pane)
   end
 
   local success, stdout, stderr = wezterm.run_child_process { '{{ tab_bar_get_git_branch_cmd }}', cwd }
-  local git_branch = ""
+  local git_branch = ''
   if success then
-    git_branch = " " .. stdout .. " "
+    git_branch = ' ' .. stdout .. ' '
   end
 
   window:set_right_status(wezterm.format {
@@ -52,13 +52,13 @@ return {
   -- CMD / SHELL
   -----------------------------------------------------------------------------
 
-  default_prog = { "{{ shell_cmd }}" },
+  default_prog = { '{{ shell_cmd }}' },
 
   -----------------------------------------------------------------------------
   -- FONTS
   -----------------------------------------------------------------------------
 
-  font = wezterm.font "{{ font_family }}",
+  font = wezterm.font '{{ font_family }}',
   font_size = {{ font_size }},
   adjust_window_size_when_changing_font_size = {{ adj_window_size_on_font_size_change }},
 
@@ -68,44 +68,78 @@ return {
 
   colors = {
 
-    foreground = "{{ wezterm_term_colors.text.fg }}",
-    background = "{{ wezterm_term_colors.background.bg }}",
-    cursor_bg = "{{ wezterm_term_colors.cursor.bg }}",
-    cursor_border = "{{ wezterm_term_colors.cursor.bg }}",
-    cursor_fg = "{{ wezterm_term_colors.cursor.fg_text }}",
+    foreground = '{{ wezterm_term_colors.text.fg }}',
+    background = '{{ wezterm_term_colors.background.bg }}',
+    cursor_bg = '{{ wezterm_term_colors.cursor.bg }}',
+    cursor_border = '{{ wezterm_term_colors.cursor.bg }}',
+    cursor_fg = '{{ wezterm_term_colors.cursor.fg_text }}',
     ansi = {
-      "{{ wezterm_term_colors.black.color0_dimmed }}",
-      "{{ wezterm_term_colors.red.color1_dimmed }}",
-      "{{ wezterm_term_colors.green.color2_dimmed }}",
-      "{{ wezterm_term_colors.yellow.color3_dimmed }}",
-      "{{ wezterm_term_colors.blue.color4_dimmed }}",
-      "{{ wezterm_term_colors.magenta.color5_dimmed }}",
-      "{{ wezterm_term_colors.cyan.color6_dimmed }}",
-      "{{ wezterm_term_colors.white.color7_dimmed }}",
+      '{{ wezterm_term_colors.black.color0_dimmed }}',
+      '{{ wezterm_term_colors.red.color1_dimmed }}',
+      '{{ wezterm_term_colors.green.color2_dimmed }}',
+      '{{ wezterm_term_colors.yellow.color3_dimmed }}',
+      '{{ wezterm_term_colors.blue.color4_dimmed }}',
+      '{{ wezterm_term_colors.magenta.color5_dimmed }}',
+      '{{ wezterm_term_colors.cyan.color6_dimmed }}',
+      '{{ wezterm_term_colors.white.color7_dimmed }}',
     },
     brights = {
-      "{{ wezterm_term_colors.black.color8_bright }}",
-      "{{ wezterm_term_colors.red.color9_bright }}",
-      "{{ wezterm_term_colors.green.color10_bright }}",
-      "{{ wezterm_term_colors.yellow.color11_bright }}",
-      "{{ wezterm_term_colors.blue.color12_bright }}",
-      "{{ wezterm_term_colors.magenta.color13_bright }}",
-      "{{ wezterm_term_colors.cyan.color14_bright }}",
-      "{{ wezterm_term_colors.white.color15_bright }}",
+      '{{ wezterm_term_colors.black.color8_bright }}',
+      '{{ wezterm_term_colors.red.color9_bright }}',
+      '{{ wezterm_term_colors.green.color10_bright }}',
+      '{{ wezterm_term_colors.yellow.color11_bright }}',
+      '{{ wezterm_term_colors.blue.color12_bright }}',
+      '{{ wezterm_term_colors.magenta.color13_bright }}',
+      '{{ wezterm_term_colors.cyan.color14_bright }}',
+      '{{ wezterm_term_colors.white.color15_bright }}',
     },
 
-    selection_fg = "black",
+    selection_fg = 'black',
     -- the background color of selected text
-    selection_bg = "#fffacd",
+    selection_bg = '#fffacd',
 
     -- The color of the split lines between panes
-    split = "#444444",
+    split = '#444444',
 
     -- The color of the scrollbar "thumb"; the portion that represents the current viewport
-    scrollbar_thumb = "#222222",
-  },
+    scrollbar_thumb = '#222222',
+
+    tab_bar = {
+
+      background = '{{ wezterm_term_colors.black.color8_bright }}',
+
+      active_tab = {
+        bg_color = '{{ wezterm_term_colors.status_active_tab.bg }}',
+        fg_color = '{{ wezterm_term_colors.status_active_tab.fg_text }}',
+        intensity = 'Normal',
+      },
+
+      inactive_tab = {
+        bg_color = '{{ wezterm_term_colors.status_inactive_tabs.bg }}',
+        fg_color = '{{ wezterm_term_colors.status_inactive_tabs.fg_text }}',
+      },
+
+      -- You can configure some alternate styling when the mouse pointer
+      -- moves over inactive tabs
+      inactive_tab_hover = {
+        bg_color = '#3b3052',
+        fg_color = '#909090',
+        italic = true,
+      },
+
+    }, -- tab_bar
+
+  }, -- colors
 
   window_background_opacity = {{ wezterm_term_colors.background.opacity }},
+
+  -----------------------------------------------------------------------------
+  -- TABS
+  -----------------------------------------------------------------------------
+
+  use_fancy_tab_bar = false,
+  tab_bar_at_bottom = {{ tab_bar_on_bottom }},
+  show_new_tab_button_in_tab_bar = {{ show_new_tab_button }},
 
   -----------------------------------------------------------------------------
   -- ALERTS

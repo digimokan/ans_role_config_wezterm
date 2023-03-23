@@ -3,6 +3,12 @@
 #   https://wezfurlong.org/wezterm/config/keys.html
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 
+# whether tab bar is placed at bottom or top of window
+tab_bar_on_bottom: 'true'
+
+# show a (mouse-activated) button for "create-new-tab"
+show_new_tab_button: 'false'
+
 # a command to run to get the current VCS branch, for tab-bar statusline
 tab_bar_get_git_branch_cmd: "printf ''"
 
