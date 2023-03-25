@@ -45,21 +45,10 @@ wezterm.on('update-right-status', function(window, pane)
   })
 end)
 
--- strip starting and ending spaces from the pane tab/pane title
+-- tab/pane-title: make sure that the last char in printed title is a space
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
- local ret_title = tab.active_pane.title
-
- local last_char = ret_title:sub(-1)
- if last_char == ' ' then
-   ret_title = ret_title:sub(1, -2)
- end
-
- local first_char = ret_title:sub(1, 1)
- if first_char == ' ' then
-   ret_title = ret_title:sub(2)
- end
-
- return ret_title
+ local title = wezterm.truncate_right(tab.active_pane.title, max_width - 1)
+ return title .. ' '
 end)
 
 return {
@@ -146,14 +135,6 @@ return {
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = {{ tab_bar_on_bottom }},
   show_new_tab_button_in_tab_bar = {{ show_new_tab_button }},
-
-  -- NOTE: tab-title-text already has spaces stripped, from format-tab-title
-  tab_bar_style = {
-    active_tab_left = wezterm.format { { Text = ' ' }, },
-    active_tab_right = wezterm.format { { Text = ' ' }, },
-    inactive_tab_left = wezterm.format { { Text = ' ' }, },
-    inactive_tab_right = wezterm.format { { Text = ' ' }, },
-  },
 
   -----------------------------------------------------------------------------
   -- ALERTS
