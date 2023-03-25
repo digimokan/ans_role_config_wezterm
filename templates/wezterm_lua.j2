@@ -96,14 +96,12 @@ return {
       '{{ wezterm_term_colors.white.color15_bright }}',
     },
 
-    selection_fg = 'black',
-    selection_bg = '#fffacd',
+    selection_fg = '{{ wezterm_term_colors.selection.fg_text }}',
+    selection_bg = '{{ wezterm_term_colors.selection.bg }}',
 
-    -- The color of the split lines between panes
-    split = '#444444',
+    split = '{{ wezterm_term_colors.pane_split.border }}',
 
-    -- The color of the scrollbar "thumb"; the portion that represents the current viewport
-    scrollbar_thumb = '#222222',
+    scrollbar_thumb = '{{ wezterm_term_colors.scrollbar.slider }}',
 
     tab_bar = {
 
