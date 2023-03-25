@@ -147,6 +147,14 @@ return {
   tab_bar_at_bottom = {{ tab_bar_on_bottom }},
   show_new_tab_button_in_tab_bar = {{ show_new_tab_button }},
 
+  -- NOTE: tab-title-text already has spaces stripped, from format-tab-title
+  tab_bar_style = {
+    active_tab_left = wezterm.format { { Text = ' ' }, },
+    active_tab_right = wezterm.format { { Text = ' ' }, },
+    inactive_tab_left = wezterm.format { { Text = ' ' }, },
+    inactive_tab_right = wezterm.format { { Text = ' ' }, },
+  },
+
   -----------------------------------------------------------------------------
   -- ALERTS
   -----------------------------------------------------------------------------
