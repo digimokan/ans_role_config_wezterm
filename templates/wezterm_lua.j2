@@ -23,12 +23,14 @@ wezterm.on('update-right-status', function(window, pane)
     end
   end
 
+  -- set the current git branch, or empty string if not in git repo
   local success, stdout, stderr = wezterm.run_child_process { '{{ tab_bar_get_git_branch_cmd }}', cwd }
   local git_branch = ''
   if success then
     git_branch = ' ' .. '{{ vcs_tree_icon }}' .. ' ' .. stdout .. ' '
   end
 
+  -- print and style the git branch and full_hostname in right side of tab-bar
   window:set_right_status(wezterm.format {
     { Foreground = { Color = '{{ wezterm_term_colors.status_vcs_branch.fg_text }}' } },
     { Background = { Color = '{{ wezterm_term_colors.status_vcs_branch.bg }}' } },
@@ -41,6 +43,16 @@ wezterm.on('update-right-status', function(window, pane)
     { Text = full_hostname },
     'ResetAttributes',
   })
+end)
+
+-- correct for wezterm pane titles that sometimes don't end in a space
+wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
+ local last_char = string.sub(tab.active_pane.title, -1)
+ if last_char == ' ' then
+   return tab.active_pane.title
+ else
+   return tab.active_pane.title .. ' '
+ end
 end)
 
 return {
