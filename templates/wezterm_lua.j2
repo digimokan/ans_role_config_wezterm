@@ -30,6 +30,13 @@ wezterm.on('update-status', function(window, pane)
     git_branch = ' ' .. '{{ vcs_tree_icon }}' .. ' ' .. stdout .. ' '
   end
 
+  -- set the current user login-name
+  local success, stdout, stderr = wezterm.run_child_process { 'id', '-u', '-n' }
+  local user_login_name = ''
+  if success then
+    user_login_name = stdout
+  end
+
   -- print and style git branch in left side of tab-bar (just left of tabs)
   window:set_left_status(wezterm.format {
     { Foreground = { Color = '{{ wezterm_term_colors.status_vcs_branch.fg_text }}' } },
@@ -39,12 +46,12 @@ wezterm.on('update-status', function(window, pane)
     'ResetAttributes',
   })
 
-  -- print and style full_hostname in right side of tab-bar
+  -- print and style user@full_hostname in right side of tab-bar
   window:set_right_status(wezterm.format {
     { Foreground = { Color = '{{ wezterm_term_colors.status_user_at_host.fg_text }}' } },
     { Background = { Color = '{{ wezterm_term_colors.status_user_at_host.bg }}' } },
     { Attribute = { Intensity = 'Bold' } },
-    { Text = full_hostname },
+    { Text = user_login_name .. '@' .. full_hostname },
     'ResetAttributes',
   })
 end)
