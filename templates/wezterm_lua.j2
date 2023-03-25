@@ -9,7 +9,7 @@ local act = wezterm.action
 -- TAB-BAR "STATUS-LINE" AREAS
 -----------------------------------------------------------------------------
 
-wezterm.on('update-right-status', function(window, pane)
+wezterm.on('update-status', function(window, pane)
   -- get the pane working dir and hostname
   local cwd = 'none'
   local full_hostname = ''
@@ -30,13 +30,17 @@ wezterm.on('update-right-status', function(window, pane)
     git_branch = ' ' .. '{{ vcs_tree_icon }}' .. ' ' .. stdout .. ' '
   end
 
-  -- print and style the git branch and full_hostname in right side of tab-bar
-  window:set_right_status(wezterm.format {
+  -- print and style git branch in left side of tab-bar (just left of tabs)
+  window:set_left_status(wezterm.format {
     { Foreground = { Color = '{{ wezterm_term_colors.status_vcs_branch.fg_text }}' } },
     { Background = { Color = '{{ wezterm_term_colors.status_vcs_branch.bg }}' } },
     { Attribute = { Intensity = 'Bold' } },
     { Text = git_branch },
     'ResetAttributes',
+  })
+
+  -- print and style full_hostname in right side of tab-bar
+  window:set_right_status(wezterm.format {
     { Foreground = { Color = '{{ wezterm_term_colors.status_user_at_host.fg_text }}' } },
     { Background = { Color = '{{ wezterm_term_colors.status_user_at_host.bg }}' } },
     { Attribute = { Intensity = 'Bold' } },
