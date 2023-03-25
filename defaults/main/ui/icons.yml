@@ -1,0 +1,3 @@
+# icon to show in tab-bar status area for the current git/VCS branch
+vcs_tree_icon: '☈'
+

@@ -31,7 +31,7 @@ wezterm.on('update-right-status', function(window, pane)
   local success, stdout, stderr = wezterm.run_child_process { '{{ tab_bar_get_git_branch_cmd }}', cwd }
   local git_branch = ''
   if success then
-    git_branch = ' ' .. stdout .. ' '
+    git_branch = ' ' .. '{{ vcs_tree_icon }}' .. ' ' .. stdout .. ' '
   end
 
   window:set_right_status(wezterm.format {
