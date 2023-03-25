@@ -9,6 +9,19 @@ local act = wezterm.action
 -- TAB-BAR "STATUS-LINE" AREAS
 -----------------------------------------------------------------------------
 
+local function get_path_to_working_dir()
+  local working_dir = 'none'
+  local cwd_uri = pane:get_current_working_dir()
+  if cwd_uri then
+    cwd_uri = cwd_uri:sub(8);
+    local slash = cwd_uri:find('/')
+    if slash then
+      working_dir = cwd_uri:sub(slash)
+    end
+  end
+  return working_dir
+end
+
 wezterm.on('update-right-status', function(window, pane)
   -- get the pane working dir and hostname
   local cwd = 'none'
@@ -28,7 +41,7 @@ wezterm.on('update-right-status', function(window, pane)
     end
   end
 
-  local success, stdout, stderr = wezterm.run_child_process { '{{ tab_bar_get_git_branch_cmd }}', cwd }
+  local success, stdout, stderr = wezterm.run_child_process { '{{ tab_bar_get_git_branch_cmd }}', working_dir }
   local git_branch = ''
   if success then
     git_branch = ' ' .. '{{ vcs_tree_icon }}' .. ' ' .. stdout .. ' '
