@@ -34,21 +34,21 @@ wezterm.on('update-right-status', function(window, pane)
   window:set_right_status(wezterm.format {
     { Foreground = { Color = '{{ wezterm_term_colors.status_vcs_branch.fg_text }}' } },
     { Background = { Color = '{{ wezterm_term_colors.status_vcs_branch.bg }}' } },
-    { Attribute= { Intensity = 'Bold' } },
+    { Attribute = { Intensity = 'Bold' } },
     { Text = git_branch },
     'ResetAttributes',
     { Foreground = { Color = '{{ wezterm_term_colors.status_user_at_host.fg_text }}' } },
     { Background = { Color = '{{ wezterm_term_colors.status_user_at_host.bg }}' } },
-    { Attribute= { Intensity = 'Bold' } },
+    { Attribute = { Intensity = 'Bold' } },
     { Text = full_hostname },
     'ResetAttributes',
   })
 end)
 
--- tab/pane-title: make sure that the last char in printed title is a space
+-- tab-title: make sure last char and first char in printed title are spaces
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
- local title = wezterm.truncate_right(tab.active_pane.title, max_width - 1)
- return title .. ' '
+ local title = wezterm.truncate_right(tab.active_pane.title, max_width - 2)
+ return ' ' .. title .. ' '
 end)
 
 return {
