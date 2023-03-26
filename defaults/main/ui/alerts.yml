@@ -1,3 +1,7 @@
 # enable audio alert bell
 audio_bell_enable: false
 
+# if set > 0, a graphics ease-function is used to fade-in and fade-out
+# if set to 0, visual bell is disabled
+visual_bell_fade_in_out_time_ms: 0
+

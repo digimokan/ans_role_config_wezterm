@@ -70,6 +70,13 @@ return {
   default_prog = { '{{ shell_cmd }}' },
 
   -----------------------------------------------------------------------------
+  -- GRAPHICS
+  -----------------------------------------------------------------------------
+
+  front_end = '{{ graphics_rendering_method }}',
+  animation_fps = {{ animation_fps_for_ease_effects }},
+
+  -----------------------------------------------------------------------------
   -- FONTS
   -----------------------------------------------------------------------------
 
@@ -117,6 +124,8 @@ return {
 
     scrollbar_thumb = '{{ wezterm_term_colors.scrollbar.slider }}',
 
+    visual_bell = '{{ wezterm_term_colors.visual_bell.bg }}',
+
     tab_bar = {
 
       background = '{{ wezterm_term_colors.status_area.bg }}',
@@ -152,6 +161,12 @@ return {
   -----------------------------------------------------------------------------
 
   audible_bell = "{{ 'SystemBeep' if audio_bell_enable else 'Disabled' }}",
+  visual_bell = {
+    fade_in_function = 'EaseIn',
+    fade_in_duration_ms = {{ visual_bell_fade_in_out_time_ms }},
+    fade_out_function = 'EaseOut',
+    fade_out_duration_ms = {{ visual_bell_fade_in_out_time_ms }},
+  },
 
   -----------------------------------------------------------------------------
   -- QUICK-SELECT MODE
