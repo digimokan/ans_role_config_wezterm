@@ -1,0 +1,3 @@
+# whether wezterm watches config file and reloads automatically on change
+auto_reload_on_config_file_change: 'false'
+

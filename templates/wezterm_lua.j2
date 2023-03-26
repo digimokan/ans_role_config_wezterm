@@ -64,9 +64,11 @@ end)
 return {
 
   -----------------------------------------------------------------------------
-  -- CMD / SHELL
+  -- SETTINGS
   -----------------------------------------------------------------------------
 
+  check_for_updates = {{ check_for_wezterm_updates }},
+  automatically_reload_config = {{ auto_reload_on_config_file_change }},
   default_prog = { '{{ shell_cmd }}' },
 
   -----------------------------------------------------------------------------
@@ -291,13 +293,6 @@ return {
     }, -- key_tables
 
   }, -- keys
-
-  -----------------------------------------------------------------------------
-  -- UPDATES
-  -----------------------------------------------------------------------------
-
-  -- whether to check for updates to the wezterm application
-  check_for_updates = {{ check_for_wezterm_updates }},
 
 } -- return
 
