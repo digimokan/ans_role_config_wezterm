@@ -18,7 +18,7 @@ wezterm.on('update-status', function(window, pane)
     cwd_uri = cwd_uri:sub(8);
     local slash = cwd_uri:find('/')
     if slash then
-      full_hostname = ' ' .. cwd_uri:sub(1, slash-1)
+      full_hostname = cwd_uri:sub(1, slash-1)
       cwd = cwd_uri:sub(slash)
     end
   end
@@ -30,11 +30,11 @@ wezterm.on('update-status', function(window, pane)
     git_branch = ' ' .. '{{ vcs_tree_icon }}' .. ' ' .. stdout .. ' '
   end
 
-  -- set the current user login-name
+  -- set the user_at_host text
   local success, stdout, stderr = wezterm.run_child_process { 'id', '-u', '-n' }
-  local user_login_name = ''
+  local user_at_host = ''
   if success then
-    user_login_name = stdout
+    user_at_host = ' ' .. stdout .. '@' .. full_hostname
   end
 
   -- print and style git branch in left side of tab-bar (just left of tabs)
@@ -51,7 +51,7 @@ wezterm.on('update-status', function(window, pane)
     { Foreground = { Color = '{{ wezterm_term_colors.status_user_at_host.fg_text }}' } },
     { Background = { Color = '{{ wezterm_term_colors.status_user_at_host.bg }}' } },
     { Attribute = { Intensity = 'Bold' } },
-    { Text = user_login_name .. '@' .. full_hostname },
+    { Text = user_at_host },
     'ResetAttributes',
   })
 end)
