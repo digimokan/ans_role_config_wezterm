@@ -1,0 +1,4 @@
+# for term progs without scrollback (e.g. less, vim), mouse wheel up/down
+# generates this number of arrow up/down keypresses
+mouse_wheel_term_pager_arrow_presses: 3
+
