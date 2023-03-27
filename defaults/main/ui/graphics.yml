@@ -6,3 +6,6 @@ graphics_rendering_method: 'Software'
 # NOTE: for GPU rendering, fps of 10 is the default
 animation_fps_for_ease_effects: 1
 
+# try to use wayland, if possible (if false, force X11 in wayland)
+try_use_wayland: 'true'
+
