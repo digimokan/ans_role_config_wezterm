@@ -13,6 +13,9 @@ font_size: 13
 # NOTE: options are 'Always', 'Never', and 'WhenFollowedBySpace'
 large_glyphs_can_take_up_two_cells: 'WhenFollowedBySpace'
 
+# if wezterm detects password input, it can show a lock icon in place of cursor
+show_cursor_lock_when_password_input: 'true'
+
 # when blinking and/or rapid-blinking text is supported (set to 0 for no blink)
 blinking_text_rate_ms: 500
 rapid_blinking_text_rate_ms: 250
