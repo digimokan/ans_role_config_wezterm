@@ -85,7 +85,6 @@ return {
 
   font = wezterm.font '{{ font_family }}',
   font_size = {{ font_size }},
-  adjust_window_size_when_changing_font_size = {{ adj_window_size_on_font_size_change }},
   allow_square_glyphs_to_overflow_width = '{{ large_glyphs_can_take_up_two_cells }}',
   detect_password_input = {{ show_cursor_lock_when_password_input }},
   text_blink_rate = {{ blinking_text_rate_ms }},
@@ -170,6 +169,13 @@ return {
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = {{ tab_bar_on_bottom }},
   show_new_tab_button_in_tab_bar = {{ show_new_tab_button }},
+
+  -----------------------------------------------------------------------------
+  -- WINDOW
+  -----------------------------------------------------------------------------
+
+  adjust_window_size_when_changing_font_size = {{ adj_window_size_on_font_size_change }},
+  exit_behavior = 'Close',
 
   -----------------------------------------------------------------------------
   -- ALERTS
