@@ -2,3 +2,6 @@
 # generates this number of arrow up/down keypresses
 mouse_wheel_term_pager_arrow_presses: 3
 
+# when mouse pointer is inside wezterm window, hide it when typing
+hide_mouse_pointer_when_typing: 'true'
+
