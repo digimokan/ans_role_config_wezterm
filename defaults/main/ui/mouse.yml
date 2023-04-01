@@ -5,3 +5,6 @@ mouse_wheel_term_pager_arrow_presses: 3
 # when mouse pointer is inside wezterm window, hide it when typing
 hide_mouse_pointer_when_typing: 'true'
 
+# when mouse pointer is over tab-bar, the mouse wheel can scroll through tabs
+mouse_wheel_scrolls_tabs: 'false'
+
