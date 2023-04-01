@@ -3,11 +3,14 @@
 #   https://wezfurlong.org/wezterm/config/keys.html
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 
-# the scrollbar occupies the window-right-padding (or last col if padding is 0)
-show_scrollbar: 'false'
+# number of lines to keep in the scrollback buffer
+scrollback_buffer_history_lines: 10000
 
 # on a keypress, scroll to the bottom of the scrollback
 scroll_to_bottom_on_keypress: 'true'
+
+# the scrollbar occupies the window-right-padding (or last col if padding is 0)
+show_scrollbar: 'false'
 
 # scroll up/down in the scrollback buffer by one page
 keymap_scrollback_page_up: { mod: 'SHIFT', key: 'PageUp' }
