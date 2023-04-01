@@ -6,6 +6,9 @@
 # the scrollbar occupies the window-right-padding (or last col if padding is 0)
 show_scrollbar: 'false'
 
+# on a keypress, scroll to the bottom of the scrollback
+scroll_to_bottom_on_keypress: 'true'
+
 # scroll up/down in the scrollback buffer by one page
 keymap_scrollback_page_up: { mod: 'SHIFT', key: 'PageUp' }
 keymap_scrollback_page_down: { mod: 'SHIFT', key: 'PageDown' }
