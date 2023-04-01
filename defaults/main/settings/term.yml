@@ -1,0 +1,4 @@
+# what to set the TERM environment variable to
+# docs say xterm-256color has good feature support without installing terminfo
+term_env_var: 'xterm-256color'
+
