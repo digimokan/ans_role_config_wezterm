@@ -176,6 +176,7 @@ return {
   -- WINDOW
   -----------------------------------------------------------------------------
 
+  window_close_confirmation = "{{ 'AlwaysPrompt' if confirm_window_close else 'NeverPrompt' }}",
   adjust_window_size_when_changing_font_size = {{ adj_window_size_on_font_size_change }},
   exit_behavior = 'Close',
 
