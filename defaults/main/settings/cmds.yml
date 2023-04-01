@@ -3,6 +3,9 @@
 # command to execute to start wezterm
 wezterm_main_cmd: 'wezterm start'
 
+# arg to wezterm command to set the name of the X11 window class
+wezterm_arg_class: "--class "
+
 # arg to wezterm command to start wezterm in a specified directory
 wezterm_arg_starting_dir: "--cwd "
 
