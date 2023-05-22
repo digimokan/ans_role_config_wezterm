@@ -13,6 +13,7 @@ keymap_copy_mode_right: { mod: 'NONE', key: 'l' }
 keymap_copy_mode_down: { mod: 'NONE', key: 'j' }
 keymap_copy_mode_up: { mod: 'NONE', key: 'k' }
 keymap_copy_mode_next_word_start: { mod: 'NONE', key: 'w' }
+keymap_copy_mode_next_word_end: { mod: 'NONE', key: 'e' }
 keymap_copy_mode_prev_word_start: { mod: 'NONE', key: 'b' }
 keymap_copy_mode_line_start: { mod: 'NONE', key: '0' }
 keymap_copy_mode_next_line_start: { mod: 'NONE', key: 'Enter' }
