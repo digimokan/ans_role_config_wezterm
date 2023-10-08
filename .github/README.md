@@ -54,7 +54,7 @@ Install and configure the wezterm terminal emulator.
        - name: "Install and configure the wezterm terminal emulator"
          ansible.builtin.include_role:
            name: ans_role_config_wezterm
-           public: yes
+           public: true
          vars:
            wezterm_user_name: "user2"
    ```
