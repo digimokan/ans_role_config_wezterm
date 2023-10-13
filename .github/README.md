@@ -57,6 +57,8 @@ Install and configure the wezterm terminal emulator.
            public: true
          vars:
            wezterm_user_name: "user2"
+           # Note: for OSs that use a flatpak, supply the flatpak cmd
+           executable: "flatpak"
    ```
 
 ## Role Options
