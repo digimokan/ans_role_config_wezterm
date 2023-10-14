@@ -1,4 +1,4 @@
-- name: "Install the 'wezterm' flatpak package"
+- name: "Install the 'org.wezfurlong.wezterm' flatpak package"
   community.general.flatpak:
     # ref: https://wezfurlong.org/wezterm/install/linux.html#installing-on-linux-via-flathub
     name:  org.wezfurlong.wezterm
