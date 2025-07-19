@@ -241,7 +241,7 @@ return {
     { key = '{{ wezterm_keymap_prev_tab.key }}', mods = '{{ wezterm_keymap_prev_tab.mod }}', action = act.ActivateTabRelative(-1) },
     { key = '{{ wezterm_keymap_move_tab_right.key }}', mods = '{{ wezterm_keymap_move_tab_right.mod }}', action = act.MoveTabRelative(1) },
     { key = '{{ wezterm_keymap_move_tab_left.key }}', mods = '{{ wezterm_keymap_move_tab_left.mod }}', action = act.MoveTabRelative(-1) },
-    { key = '{{ wezterm_keymap_kill_tab.key }}', mods = '{{ wezterm_keymap_kill_tab.mod }}', action = act.CloseCurrentTab{ confirm = false } },
+    { key = '{{ wezterm_keymap_kill_pane_or_tab.key }}', mods = '{{ wezterm_keymap_kill_pane_or_tab.mod }}', action = act.CloseCurrentTab{ confirm = false } },
 
     -- Panes
 

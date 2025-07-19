@@ -1,4 +1,4 @@
-wezterm_keymap_kill_tab: { mod: 'CTRL', key: 'x' }
+wezterm_keymap_kill_pane_or_tab: { mod: 'CTRL', key: 'x' }
 wezterm_keymap_scrollback_clear: { mod: 'CTRL', key: 'u' }
 
 wezterm_keymap_scrollback_page_up: { mod: 'SHIFT', key: 'PageUp' }
