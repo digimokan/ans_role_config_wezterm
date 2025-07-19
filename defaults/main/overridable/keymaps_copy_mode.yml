@@ -4,9 +4,6 @@
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 #   https://wezfurlong.org/wezterm/copymode.html
 
-# enter copy mode
-wezterm_keymap_enter_copy_mode: { mod: 'CTRL', key: 'm' }
-
 # navigate the scrollback in copy mode
 wezterm_keymap_copy_mode_left: { mod: 'NONE', key: 'h' }
 wezterm_keymap_copy_mode_right: { mod: 'NONE', key: 'l' }

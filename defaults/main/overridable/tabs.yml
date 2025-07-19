@@ -15,15 +15,3 @@ wezterm_tab_bar_get_git_branch_cmd: "printf ''"
 # how often the tab-bar statusline will update, in milliseconds
 wezterm_tab_bar_statusline_update_interval_ms: 1000
 
-# create a new tab, to the right of the current tab, and switch to it
-wezterm_keymap_create_new_tab: { mod: 'CTRL', key: 't' }
-
-# go to next/prev tab (i.e. tab to the "right/left"), or move tab to right/left
-wezterm_keymap_next_tab: { mod: 'CTRL', key: '.' }
-wezterm_keymap_prev_tab: { mod: 'CTRL', key: ',' }
-wezterm_keymap_move_tab_right: { mod: 'SHIFT|CTRL', key: '>' }
-wezterm_keymap_move_tab_left: { mod: 'SHIFT|CTRL', key: '<' }
-
-# kill the current tab, and all processes running in it
-wezterm_keymap_kill_tab: { mod: 'CTRL', key: 'x' }
-

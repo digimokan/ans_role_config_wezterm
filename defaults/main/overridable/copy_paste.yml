@@ -7,9 +7,3 @@
 # --> "None", "LineFeed", "CarriageReturn", "CarriageReturnAndLineFeed"
 wezterm_auto_convert_pasted_newlines: 'LineFeed'
 
-# copy the currently-selected text to the clipboard, and to "PRIMARY" selection
-wezterm_keymap_copy_sel_to_clipboard: { mod: 'SHIFT|CTRL', key: 'C' }
-
-# paste text from the clipboard to the current cursor position
-wezterm_keymap_paste_from_clipboard: { mod: 'SHIFT|CTRL', key: 'V' }
-

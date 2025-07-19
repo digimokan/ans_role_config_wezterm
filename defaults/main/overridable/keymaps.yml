@@ -1,0 +1,40 @@
+wezterm_keymap_kill_tab: { mod: 'CTRL', key: 'x' }
+wezterm_keymap_scrollback_clear: { mod: 'CTRL', key: 'u' }
+
+wezterm_keymap_scrollback_page_up: { mod: 'SHIFT', key: 'PageUp' }
+wezterm_keymap_scrollback_page_down: { mod: 'SHIFT', key: 'PageDown' }
+
+wezterm_keymap_copy_sel_to_clipboard: { mod: 'SHIFT|CTRL', key: 'C' }
+wezterm_keymap_paste_from_clipboard: { mod: 'SHIFT|CTRL', key: 'V' }
+
+wezterm_keymap_inc_font_size: { mod: 'CTRL', key: '=' }
+wezterm_keymap_dec_font_size: { mod: 'CTRL', key: '-' }
+wezterm_keymap_reset_font_size: { mod: 'CTRL', key: '0' }
+
+wezterm_keymap_create_new_tab: { mod: 'CTRL', key: 't' }
+wezterm_keymap_next_tab: { mod: 'CTRL', key: '.' }
+wezterm_keymap_prev_tab: { mod: 'CTRL', key: ',' }
+wezterm_keymap_move_tab_right: { mod: 'SHIFT|CTRL', key: '>' }
+wezterm_keymap_move_tab_left: { mod: 'SHIFT|CTRL', key: '<' }
+
+wezterm_keymap_new_horizontal_pane: { mod: 'CTRL', key: 'o' }
+wezterm_keymap_new_vertical_pane: { mod: 'CTRL', key: 'i' }
+wezterm_keymap_switch_pane_left: { mod: 'CTRL', key: 'h' }
+wezterm_keymap_switch_pane_right: { mod: 'CTRL', key: 'l' }
+wezterm_keymap_switch_pane_above: { mod: 'CTRL', key: 'k' }
+wezterm_keymap_switch_pane_below: { mod: 'CTRL', key: 'j' }
+wezterm_keymap_toggle_pane_fullscreen: { mod: 'CTRL', key: 'y' }
+
+wezterm_keymap_enter_quick_select_mode: { mod: 'CTRL', key: 's' }
+
+wezterm_keymap_enter_copy_mode: { mod: 'CTRL', key: 'm' }
+
+wezterm_keymap_enter_search_mode: { mod: 'CTRL', key: 'f' }
+wezterm_keymap_next_search_hit: { mod: 'NONE', key: 'DownArrow' }
+wezterm_keymap_prev_search_hit: { mod: 'NONE', key: 'UpArrow' }
+wezterm_keymap_next_search_page: { mod: 'NONE', key: 'PageDown' }
+wezterm_keymap_prev_search_page: { mod: 'NONE', key: 'PageUp' }
+wezterm_keymap_cycle_search_type: { mod: 'CTRL', key: 'r' }
+wezterm_keymap_copy_search_hit_to_clipboard: { mod: 'CTRL', key: 'c' }
+wezterm_keymap_exit_search_mode: { mod: 'NONE', key: 'Escape' }
+

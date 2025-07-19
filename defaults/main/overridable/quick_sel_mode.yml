@@ -4,9 +4,6 @@
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 #   https://wezfurlong.org/wezterm/quickselect.html
 
-# enter quick-select mode
-wezterm_keymap_enter_quick_select_mode: { mod: 'CTRL', key: 's' }
-
 # on quick-select mode enter, it searches screen for this hard-coded pattern
 # NOTE: this pattern matches SHA-1 hashes
 wezterm_quick_select_search_pattern: '[0-9a-f]{7,40}'

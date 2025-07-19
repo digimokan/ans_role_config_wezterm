@@ -12,10 +12,3 @@ wezterm_scroll_to_bottom_on_keypress: 'true'
 # the scrollbar occupies the window-right-padding (or last col if padding is 0)
 wezterm_show_scrollbar: 'false'
 
-# scroll up/down in the scrollback buffer by one page
-wezterm_keymap_scrollback_page_up: { mod: 'SHIFT', key: 'PageUp' }
-wezterm_keymap_scrollback_page_down: { mod: 'SHIFT', key: 'PageDown' }
-
-# clear the entire scrollback buffer
-wezterm_keymap_scrollback_clear: { mod: 'CTRL', key: 'u' }
-

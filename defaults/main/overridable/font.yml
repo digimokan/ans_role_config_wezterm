@@ -20,8 +20,3 @@ wezterm_show_cursor_lock_when_password_input: 'true'
 wezterm_blinking_text_rate_ms: 500
 wezterm_rapid_blinking_text_rate_ms: 250
 
-# increase/decrease the font size by one point, or reset-font-size-to-default
-wezterm_keymap_inc_font_size: { mod: 'CTRL', key: '=' }
-wezterm_keymap_dec_font_size: { mod: 'CTRL', key: '-' }
-wezterm_keymap_reset_font_size: { mod: 'CTRL', key: '0' }
-
