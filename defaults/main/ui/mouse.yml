@@ -1,13 +1,13 @@
 # moving the mouse pointer over a pane gives it focus
-pane_focus_follows_mouse_pointer: 'false'
+wezterm_pane_focus_follows_mouse_pointer: 'false'
 
 # for term progs without scrollback (e.g. less, vim), mouse wheel up/down
 # generates this number of arrow up/down keypresses
-mouse_wheel_term_pager_arrow_presses: 3
+wezterm_mouse_wheel_term_pager_arrow_presses: 3
 
 # when mouse pointer is inside wezterm window, hide it when typing
-hide_mouse_pointer_when_typing: 'true'
+wezterm_hide_mouse_pointer_when_typing: 'true'
 
 # when mouse pointer is over tab-bar, the mouse wheel can scroll through tabs
-mouse_wheel_scrolls_tabs: 'false'
+wezterm_mouse_wheel_scrolls_tabs: 'false'
 

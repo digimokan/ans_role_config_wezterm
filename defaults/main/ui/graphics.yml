@@ -1,11 +1,11 @@
 # render with "Software" (CPU), or "OpenGL" / "WebGpu" (GPU)
-graphics_rendering_method: 'Software'
+wezterm_graphics_rendering_method: 'Software'
 
 # frame rate of easing effects for blink-cursor, blinking-text, visual-bell
 # NOTE: for CPU rendering, fps of 1 is recommended
 # NOTE: for GPU rendering, fps of 10 is the default
-animation_fps_for_ease_effects: 1
+wezterm_animation_fps_for_ease_effects: 1
 
 # try to use wayland, if possible (if false, force X11 in wayland)
-try_use_wayland: 'true'
+wezterm_try_use_wayland: 'true'
 

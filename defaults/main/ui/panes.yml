@@ -4,17 +4,17 @@
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 
 # create a new pane below the current pane, and switch to it
-keymap_new_horizontal_pane: { mod: 'CTRL', key: 'o' }
+wezterm_keymap_new_horizontal_pane: { mod: 'CTRL', key: 'o' }
 
 # create a new pane to the right of the current pane, and switch to it
-keymap_new_vertical_pane: { mod: 'CTRL', key: 'i' }
+wezterm_keymap_new_vertical_pane: { mod: 'CTRL', key: 'i' }
 
 # go to the pane to the left/right/above/below the current pane
-keymap_switch_pane_left: { mod: 'CTRL', key: 'h' }
-keymap_switch_pane_right: { mod: 'CTRL', key: 'l' }
-keymap_switch_pane_above: { mod: 'CTRL', key: 'k' }
-keymap_switch_pane_below: { mod: 'CTRL', key: 'j' }
+wezterm_keymap_switch_pane_left: { mod: 'CTRL', key: 'h' }
+wezterm_keymap_switch_pane_right: { mod: 'CTRL', key: 'l' }
+wezterm_keymap_switch_pane_above: { mod: 'CTRL', key: 'k' }
+wezterm_keymap_switch_pane_below: { mod: 'CTRL', key: 'j' }
 
 # toggle "fullscreen" mode for the current pane
-keymap_toggle_pane_fullscreen: { mod: 'CTRL', key: 'y' }
+wezterm_keymap_toggle_pane_fullscreen: { mod: 'CTRL', key: 'y' }
 

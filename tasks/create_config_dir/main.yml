@@ -1,9 +1,7 @@
-- name: "Create wezterm config dir for user '{{ wezterm_user_name }}' at '{{ wezterm_user_config_dir }}'"
+- name: "Create wezterm config dir for user '{{ wezterm_user_name }}', if not exist"
   ansible.builtin.file:
-    path: "{{ wezterm_user_config_dir }}"
+    path: "{{ wezterm_user_config_file_path | dirname }}"
     state: directory
-    owner: "{{ wezterm_user_name }}"
-    mode: '755'
   become: true
-  become_user: root
+  become_user: "{{ wezterm_user_name }}"
 

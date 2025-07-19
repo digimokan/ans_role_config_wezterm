@@ -1,7 +1,7 @@
 # types: "SteadyBlock", "BlinkingBlock", "SteadyUnderline", "BlinkingUnderline",
 #        "SteadyBar", and "BlinkingBar"
-cursor_type: 'SteadyBlock'
+wezterm_cursor_type: 'SteadyBlock'
 
-# if cursor_type is blinking, this var sets the blink rate
-cursor_blink_rate_ms: 800
+# if wezterm_cursor_type is blinking, this var sets the blink rate
+wezterm_cursor_blink_rate_ms: 800
 

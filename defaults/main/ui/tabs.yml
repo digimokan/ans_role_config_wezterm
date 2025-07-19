@@ -4,26 +4,26 @@
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 
 # whether tab bar is placed at bottom or top of window
-tab_bar_on_bottom: 'true'
+wezterm_tab_bar_on_bottom: 'true'
 
 # show a (mouse-activated) button for "create-new-tab"
-show_new_tab_button: 'false'
+wezterm_show_new_tab_button: 'false'
 
 # a command to run to get the current VCS branch, for tab-bar statusline
-tab_bar_get_git_branch_cmd: "printf ''"
+wezterm_tab_bar_get_git_branch_cmd: "printf ''"
 
 # how often the tab-bar statusline will update, in milliseconds
-tab_bar_statusline_update_interval_ms: 1000
+wezterm_tab_bar_statusline_update_interval_ms: 1000
 
 # create a new tab, to the right of the current tab, and switch to it
-keymap_create_new_tab: { mod: 'CTRL', key: 't' }
+wezterm_keymap_create_new_tab: { mod: 'CTRL', key: 't' }
 
 # go to next/prev tab (i.e. tab to the "right/left"), or move tab to right/left
-keymap_next_tab: { mod: 'CTRL', key: '.' }
-keymap_prev_tab: { mod: 'CTRL', key: ',' }
-keymap_move_tab_right: { mod: 'SHIFT|CTRL', key: '>' }
-keymap_move_tab_left: { mod: 'SHIFT|CTRL', key: '<' }
+wezterm_keymap_next_tab: { mod: 'CTRL', key: '.' }
+wezterm_keymap_prev_tab: { mod: 'CTRL', key: ',' }
+wezterm_keymap_move_tab_right: { mod: 'SHIFT|CTRL', key: '>' }
+wezterm_keymap_move_tab_left: { mod: 'SHIFT|CTRL', key: '<' }
 
 # kill the current tab, and all processes running in it
-keymap_kill_tab: { mod: 'CTRL', key: 'x' }
+wezterm_keymap_kill_tab: { mod: 'CTRL', key: 'x' }
 

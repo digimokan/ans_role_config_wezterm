@@ -4,24 +4,24 @@
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 
 # main font-family
-font_family: 'monospace'
+wezterm_font_family: 'monospace'
 
 # font size, in integer or fractional
-font_size: 13
+wezterm_font_size: 13
 
 # if a unicode glyph overflows cell width, allow it to extend into next cell
 # NOTE: options are 'Always', 'Never', and 'WhenFollowedBySpace'
-large_glyphs_can_take_up_two_cells: 'WhenFollowedBySpace'
+wezterm_large_glyphs_can_take_up_two_cells: 'WhenFollowedBySpace'
 
 # if wezterm detects password input, it can show a lock icon in place of cursor
-show_cursor_lock_when_password_input: 'true'
+wezterm_show_cursor_lock_when_password_input: 'true'
 
 # when blinking and/or rapid-blinking text is supported (set to 0 for no blink)
-blinking_text_rate_ms: 500
-rapid_blinking_text_rate_ms: 250
+wezterm_blinking_text_rate_ms: 500
+wezterm_rapid_blinking_text_rate_ms: 250
 
 # increase/decrease the font size by one point, or reset-font-size-to-default
-keymap_inc_font_size: { mod: 'CTRL', key: '=' }
-keymap_dec_font_size: { mod: 'CTRL', key: '-' }
-keymap_reset_font_size: { mod: 'CTRL', key: '0' }
+wezterm_keymap_inc_font_size: { mod: 'CTRL', key: '=' }
+wezterm_keymap_dec_font_size: { mod: 'CTRL', key: '-' }
+wezterm_keymap_reset_font_size: { mod: 'CTRL', key: '0' }
 

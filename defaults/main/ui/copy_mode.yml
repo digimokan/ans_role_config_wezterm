@@ -5,36 +5,36 @@
 #   https://wezfurlong.org/wezterm/copymode.html
 
 # enter copy mode
-keymap_enter_copy_mode: { mod: 'CTRL', key: 'm' }
+wezterm_keymap_enter_copy_mode: { mod: 'CTRL', key: 'm' }
 
 # navigate the scrollback in copy mode
-keymap_copy_mode_left: { mod: 'NONE', key: 'h' }
-keymap_copy_mode_right: { mod: 'NONE', key: 'l' }
-keymap_copy_mode_down: { mod: 'NONE', key: 'j' }
-keymap_copy_mode_up: { mod: 'NONE', key: 'k' }
-keymap_copy_mode_next_word_start: { mod: 'NONE', key: 'w' }
-keymap_copy_mode_next_word_end: { mod: 'NONE', key: 'e' }
-keymap_copy_mode_prev_word_start: { mod: 'NONE', key: 'b' }
-keymap_copy_mode_line_start: { mod: 'NONE', key: '0' }
-keymap_copy_mode_next_line_start: { mod: 'NONE', key: 'Enter' }
-keymap_copy_mode_line_end: { mod: 'NONE', key: '-' }
-keymap_copy_mode_next_page: { mod: 'NONE', key: 'PageDown' }
-keymap_copy_mode_prev_page: { mod: 'NONE', key: 'PageUp' }
-keymap_copy_mode_screen_top: { mod: 'SHIFT', key: 'H' }
-keymap_copy_mode_screen_middle: { mod: 'SHIFT', key: 'M' }
-keymap_copy_mode_screen_end: { mod: 'SHIFT', key: 'L' }
-keymap_copy_mode_scrollback_start: { mod: 'NONE', key: 'g' }
-keymap_copy_mode_scrollback_end: { mod: 'SHIFT', key: 'G' }
+wezterm_keymap_copy_mode_left: { mod: 'NONE', key: 'h' }
+wezterm_keymap_copy_mode_right: { mod: 'NONE', key: 'l' }
+wezterm_keymap_copy_mode_down: { mod: 'NONE', key: 'j' }
+wezterm_keymap_copy_mode_up: { mod: 'NONE', key: 'k' }
+wezterm_keymap_copy_mode_next_word_start: { mod: 'NONE', key: 'w' }
+wezterm_keymap_copy_mode_next_word_end: { mod: 'NONE', key: 'e' }
+wezterm_keymap_copy_mode_prev_word_start: { mod: 'NONE', key: 'b' }
+wezterm_keymap_copy_mode_line_start: { mod: 'NONE', key: '0' }
+wezterm_keymap_copy_mode_next_line_start: { mod: 'NONE', key: 'Enter' }
+wezterm_keymap_copy_mode_line_end: { mod: 'NONE', key: '-' }
+wezterm_keymap_copy_mode_next_page: { mod: 'NONE', key: 'PageDown' }
+wezterm_keymap_copy_mode_prev_page: { mod: 'NONE', key: 'PageUp' }
+wezterm_keymap_copy_mode_screen_top: { mod: 'SHIFT', key: 'H' }
+wezterm_keymap_copy_mode_screen_middle: { mod: 'SHIFT', key: 'M' }
+wezterm_keymap_copy_mode_screen_end: { mod: 'SHIFT', key: 'L' }
+wezterm_keymap_copy_mode_scrollback_start: { mod: 'NONE', key: 'g' }
+wezterm_keymap_copy_mode_scrollback_end: { mod: 'SHIFT', key: 'G' }
 
 # toggle "select mode" in copy mode to highlight text
-keymap_copy_mode_select_chars: { mod: 'NONE', key: 'v' }
-keymap_copy_mode_select_line: { mod: 'SHIFT', key: 'V' }
-keymap_copy_mode_select_block: { mod: 'CTRL', key: 'v' }
-keymap_copy_mode_select_goto_ends: { mod: 'NONE', key: 'o' }
+wezterm_keymap_copy_mode_select_chars: { mod: 'NONE', key: 'v' }
+wezterm_keymap_copy_mode_select_line: { mod: 'SHIFT', key: 'V' }
+wezterm_keymap_copy_mode_select_block: { mod: 'CTRL', key: 'v' }
+wezterm_keymap_copy_mode_select_goto_ends: { mod: 'NONE', key: 'o' }
 
 # copy the highlighted text to the clipboard, and then exit copy mode
-keymap_copy_mode_copy_sel_to_clip: { mod: 'NONE', key: 'y' }
+wezterm_keymap_copy_mode_copy_sel_to_clip: { mod: 'NONE', key: 'y' }
 
 # exit copy mode
-keymap_copy_mode_exit: { mod: 'NONE', key: 'Escape' }
+wezterm_keymap_copy_mode_exit: { mod: 'NONE', key: 'Escape' }
 

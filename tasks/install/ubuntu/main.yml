@@ -3,7 +3,7 @@
     # ref: https://wezfurlong.org/wezterm/install/linux.html#installing-on-linux-via-flathub
     name:  org.wezfurlong.wezterm
     remote: flathub
-    executable: "{{ flatpak_main_cmd }}"
+    executable: "{{ wezterm_flatpak_main_cmd }}"
     state: present
   become: true
   become_user: root

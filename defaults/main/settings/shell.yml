@@ -1,5 +1,5 @@
 # refs: https://wezfurlong.org/wezterm/config/launch.html
 
 # shell command to start in the terminal emulator
-shell_cmd: '/bin/sh'
+wezterm_shell_cmd: '/bin/sh'
 

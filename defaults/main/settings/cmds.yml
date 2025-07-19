@@ -11,5 +11,5 @@ wezterm_arg_starting_dir: "--cwd "
 
 # arg to wezterm command to execute a specific prog/cmd immediately on start
 # NOTE: make sure this arg goes last
-wezterm_arg_exec: "-- {{ shell_cmd }} -c "
+wezterm_arg_exec: "-- {{ wezterm_shell_cmd }} -c "
 

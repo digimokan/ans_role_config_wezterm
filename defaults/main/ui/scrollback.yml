@@ -4,18 +4,18 @@
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 
 # number of lines to keep in the scrollback buffer
-scrollback_buffer_history_lines: 10000
+wezterm_scrollback_buffer_history_lines: 10000
 
 # on a keypress, scroll to the bottom of the scrollback
-scroll_to_bottom_on_keypress: 'true'
+wezterm_scroll_to_bottom_on_keypress: 'true'
 
 # the scrollbar occupies the window-right-padding (or last col if padding is 0)
-show_scrollbar: 'false'
+wezterm_show_scrollbar: 'false'
 
 # scroll up/down in the scrollback buffer by one page
-keymap_scrollback_page_up: { mod: 'SHIFT', key: 'PageUp' }
-keymap_scrollback_page_down: { mod: 'SHIFT', key: 'PageDown' }
+wezterm_keymap_scrollback_page_up: { mod: 'SHIFT', key: 'PageUp' }
+wezterm_keymap_scrollback_page_down: { mod: 'SHIFT', key: 'PageDown' }
 
 # clear the entire scrollback buffer
-keymap_scrollback_clear: { mod: 'CTRL', key: 'u' }
+wezterm_keymap_scrollback_clear: { mod: 'CTRL', key: 'u' }
 

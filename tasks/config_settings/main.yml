@@ -1,12 +1,8 @@
-- name: "Configure settings for user '{{ wezterm_user_name }}' in '{{ wezterm_lua_path }}'"
+- name: "Configure settings for user '{{ wezterm_user_name }}' in '{{ wezterm_user_config_file_path }}'"
   ansible.builtin.template:
-    dest: "{{ wezterm_lua_path }}"
+    dest: "{{ wezterm_user_config_file_path }}"
     src: "wezterm_lua.j2"
     owner: "{{ wezterm_user_name }}"
-    mode: '644'
-    force: true
-  vars:
-    wezterm_lua_path: "{{ wezterm_user_config_dir }}/wezterm.lua"
   become: true
-  become_user: root
+  become_user: "{{ wezterm_user_name }}"
 

@@ -5,12 +5,12 @@
 #   https://wezfurlong.org/wezterm/quickselect.html
 
 # enter quick-select mode
-keymap_enter_quick_select_mode: { mod: 'CTRL', key: 's' }
+wezterm_keymap_enter_quick_select_mode: { mod: 'CTRL', key: 's' }
 
 # on quick-select mode enter, it searches screen for this hard-coded pattern
 # NOTE: this pattern matches SHA-1 hashes
-quick_select_search_pattern: '[0-9a-f]{7,40}'
+wezterm_quick_select_search_pattern: '[0-9a-f]{7,40}'
 
 # each search hit is overlayed with hint keys, for copying a hit to clipboard
-quick_select_hint_keys: 'asdfjklgh'
+wezterm_quick_select_hint_keys: 'asdfjklgh'
 
