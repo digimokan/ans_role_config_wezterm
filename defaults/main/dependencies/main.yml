@@ -1,3 +1,6 @@
+# user name of main wezterm user
+wezterm_user_name: "user2"
+
 # command to execute to execute flatpak (required for some OSs that use flatpak)
 wezterm_flatpak_main_cmd: 'false'
 
