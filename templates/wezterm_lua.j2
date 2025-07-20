@@ -253,7 +253,7 @@ return {
   disable_default_quick_select_patterns = {{ wezterm_quick_select_disable_default_patterns }},
   quick_select_patterns = { {{ wezterm_quick_select_additional_pattern_list | map("to_json") | join(", ") }} },
   quick_select_alphabet = '{{ wezterm_quick_select_hint_keys }}',
-  quick_select_remove_styling = {{ wezterm_quick_select_remove_default_styling }},
+  -- quick_select_remove_styling = {{ wezterm_quick_select_remove_default_styling }},
 
   -----------------------------------------------------------------------------
   -- COPY / PASTE
