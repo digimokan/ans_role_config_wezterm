@@ -1,5 +1,5 @@
 # render with "Software" (CPU), "OpenGL" (GPU) / "WebGpu" (GPU, Platform-Specific)
-wezterm_graphics_rendering_method: 'Software'
+wezterm_graphics_rendering_method: 'WebGpu'
 
 # prefer use of EGL to access GPU
 wezterm_gpu_access_prefer_egl: 'true'
