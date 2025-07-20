@@ -1,0 +1,4 @@
+# list of name/port/baud tuples to connect to with "wezterm connect"
+wezterm_predefined_serial_connections: |
+#   { name: 'Custom Sensor 1', port: '/dev/ttyu0', baud: 115200 },"
+

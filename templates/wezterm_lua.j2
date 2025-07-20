@@ -65,20 +65,43 @@ end)
 return {
 
   -----------------------------------------------------------------------------
-  -- SETTINGS
+  -- LOADING
+  -----------------------------------------------------------------------------
+
+  automatically_reload_config = {{ wezterm_auto_reload_on_config_file_change }},
+  default_gui_startup_args = { {{ wezterm_default_cli_commands_list | map("to_json") | join(", ") }} },
+  prefer_to_spawn_tabs = {{ wezterm_perfer_spawn_new_instance_as_tab }},
+
+  -----------------------------------------------------------------------------
+  -- TERMINAL
   -----------------------------------------------------------------------------
 
   term = '{{ wezterm_term_env_var }}',
-  check_for_updates = {{ wezterm_check_for_updates }},
-  automatically_reload_config = {{ wezterm_auto_reload_on_config_file_change }},
+  clean_exit_codes = { {{ wezterm_term_success_exit_codes }} },
+  exit_behavior = '{{ wezterm_exit_behavior }}',
+  exit_behavior_messaging = '{{ wezterm_exit_hold_message }}',
+
+  -----------------------------------------------------------------------------
+  -- SHELL
+  -----------------------------------------------------------------------------
+
   default_prog = { '{{ wezterm_shell_cmd }}' },
+
+  -----------------------------------------------------------------------------
+  -- UPDATES
+  -----------------------------------------------------------------------------
+
+  check_for_updates = {{ wezterm_check_for_updates }},
 
   -----------------------------------------------------------------------------
   -- GRAPHICS
   -----------------------------------------------------------------------------
 
   front_end = '{{ wezterm_graphics_rendering_method }}',
+  prefer_egl = {{ wezterm_gpu_access_prefer_egl }},
   animation_fps = {{ wezterm_animation_fps_for_ease_effects }},
+  max_fps = {{ wezterm_max_fps }},
+  display_pixel_geometry = '{{ wezterm_display_pixel_geometry }}',
   enable_wayland = {{ wezterm_try_use_wayland }},
 
   -----------------------------------------------------------------------------
@@ -86,8 +109,12 @@ return {
   -----------------------------------------------------------------------------
 
   font = wezterm.font '{{ wezterm_font_family }}',
-  font_size = {{ wezterm_font_size }},
+  font_size = {{ wezterm_normal_font_size }},
+  char_select_font_size = {{ wezterm_char_select_font_size }},
   allow_square_glyphs_to_overflow_width = '{{ wezterm_large_glyphs_can_take_up_two_cells }}',
+  warn_about_missing_glyphs = {{ wezterm_warn_on_missing_glyph }},
+  anti_alias_custom_block_glyphs = {{ wezterm_anti_alias_custom_block_glyphs }},
+  bold_brightens_ansi_colors = '{{ wezterm_bold_text_handling }}',
   detect_password_input = {{ wezterm_show_cursor_lock_when_password_input }},
   text_blink_rate = {{ wezterm_blinking_text_rate_ms }},
   text_blink_rate_rapid = {{ wezterm_rapid_blinking_text_rate_ms }},
@@ -98,6 +125,8 @@ return {
 
   default_cursor_style = '{{ wezterm_cursor_type }}',
   cursor_blink_rate = {{ wezterm_cursor_blink_rate_ms }},
+  cursor_blink_ease_in = '{{ wezterm_cursor_blink_ease_in_method }}',
+  cursor_blink_ease_out = '{{ wezterm_cursor_blink_ease_out_method }}',
 
   -----------------------------------------------------------------------------
   -- COLORS
@@ -160,6 +189,14 @@ return {
 
   }, -- colors
 
+  foreground_text_hsb = {
+    hue = {{ wezterm_term_colors.text.fg_hue_multiplier }},
+    saturation = {{ wezterm_term_colors.text.fg_saturation_multiplier }},
+    brightness = {{ wezterm_term_colors.text.fg_brightness_multiplier }},
+  },
+  char_select_bg_color = '{{ wezterm_term_colors.alt_selection.bg }}',
+  char_select_fg_color = '{{ wezterm_term_colors.alt_selection.fg_text }}',
+  force_reverse_video_cursor = {{ wezterm_term_colors.cursor.force_reverse_video }},
   window_background_opacity = {{ wezterm_term_colors.background.opacity }},
 
   -----------------------------------------------------------------------------
@@ -167,10 +204,15 @@ return {
   -----------------------------------------------------------------------------
 
   enable_tab_bar = true,
-  hide_tab_bar_if_only_one_tab = false,
+  show_tabs_in_tab_bar = {{ wezterm_show_tabs_in_tab_bar }},
+  hide_tab_bar_if_only_one_tab = {{ wezterm_tab_bar_hide_if_single_tab }},
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = {{ wezterm_tab_bar_on_bottom }},
   show_new_tab_button_in_tab_bar = {{ wezterm_show_new_tab_button }},
+  show_close_tab_button_in_tabs = {{ wezterm_show_close_tab_button }},
+  tab_and_split_indices_are_zero_based = {{ wezterm_show_zero_based_tab_index }},
+  show_tab_index_in_tab_bar = {{ wezterm_show_tab_index_in_tab_title }},
+  switch_to_last_active_tab_when_closing_tab = {{ wezterm_switch_to_prev_active_tab_on_tab_close }},
   status_update_interval = {{ wezterm_tab_bar_statusline_update_interval_ms }},
 
   -----------------------------------------------------------------------------
@@ -179,7 +221,12 @@ return {
 
   window_close_confirmation = "{{ 'AlwaysPrompt' if wezterm_confirm_window_close else 'NeverPrompt' }}",
   adjust_window_size_when_changing_font_size = {{ wezterm_adj_window_size_on_font_size_change }},
-  exit_behavior = 'Close',
+  window_padding = {
+    left = {{ wezterm_window_padding_left }},
+    right = {{ wezterm_window_padding_right }},
+    top = {{ wezterm_window_padding_top }},
+    bottom = {{ wezterm_window_padding_bottom }},
+  },
 
   -----------------------------------------------------------------------------
   -- ALERTS
@@ -187,19 +234,26 @@ return {
 
   audible_bell = "{{ 'SystemBeep' if wezterm_audio_bell_enable else 'Disabled' }}",
   visual_bell = {
-    fade_in_function = 'EaseIn',
-    fade_in_duration_ms = {{ wezterm_visual_bell_fade_in_out_time_ms }},
-    fade_out_function = 'EaseOut',
-    fade_out_duration_ms = {{ wezterm_visual_bell_fade_in_out_time_ms }},
+    fade_in_function = '{{ wezterm_visual_bell_ease_in_method }}',
+    fade_in_duration_ms = {{ wezterm_visual_bell_fade_in_time_ms }},
+    fade_out_function = '{{ wezterm_visual_bell_ease_out_method }}',
+    fade_out_duration_ms = {{ wezterm_visual_bell_fade_out_time_ms }},
   },
+
+  -----------------------------------------------------------------------------
+  -- NOTIFICATIONS
+  -----------------------------------------------------------------------------
+
+  notification_handling = '{{ wezterm_toast_notification_behavior }}',
 
   -----------------------------------------------------------------------------
   -- QUICK-SELECT MODE
   -----------------------------------------------------------------------------
 
-  disable_default_quick_select_patterns = true,
-  quick_select_patterns = { '{{ wezterm_quick_select_search_pattern }}' },
+  disable_default_quick_select_patterns = {{ wezterm_quick_select_disable_default_patterns }},
+  quick_select_patterns = { {{ wezterm_quick_select_additional_pattern_list | map("to_json") | join(", ") }} },
   quick_select_alphabet = '{{ wezterm_quick_select_hint_keys }}',
+  quick_select_remove_styling = {{ wezterm_quick_select_remove_default_styling }},
 
   -----------------------------------------------------------------------------
   -- COPY / PASTE
@@ -214,6 +268,7 @@ return {
   scrollback_lines = {{ wezterm_scrollback_buffer_history_lines }},
   scroll_to_bottom_on_input = {{ wezterm_scroll_to_bottom_on_keypress }},
   enable_scroll_bar = {{ wezterm_show_scrollbar }},
+  min_scroll_bar_height = '{{ wezterm_min_scrollbar_height }}',
 
   -----------------------------------------------------------------------------
   -- MOUSE
@@ -224,6 +279,15 @@ return {
   alternate_buffer_wheel_scroll_speed = {{ wezterm_mouse_wheel_term_pager_arrow_presses }},
   hide_mouse_cursor_when_typing = {{ wezterm_hide_mouse_pointer_when_typing }},
   wezterm_mouse_wheel_scrolls_tabs = {{ wezterm_mouse_wheel_scrolls_tabs }},
+  swallow_mouse_click_on_pane_focus = {{ wezterm_mouse_focus_without_press }},
+
+  -----------------------------------------------------------------------------
+  -- SERIAL
+  -----------------------------------------------------------------------------
+
+  serial_ports = {
+    wezterm_predefined_serial_connections
+  },
 
   -----------------------------------------------------------------------------
   -- KEYMAPS
@@ -234,6 +298,27 @@ return {
 
   keys = {
 
+    -- General
+
+    { key = '{{ wezterm_keymap_close_pane_or_tab.key }}', mods = '{{ wezterm_keymap_close_pane_or_tab.mod }}', action = act.CloseCurrentTab{ confirm = false } },
+    { key = '{{ wezterm_keymap_clear_screen_and_scrollback_clear.key }}', mods = '{{ wezterm_keymap_clear_screen_and_scrollback_clear.mod }}', action = act.ClearScrollback 'ScrollbackAndViewport' },
+
+    -- Screen And Scrollback
+
+    { key = '{{ wezterm_keymap_scrollback_page_up.key }}', mods = '{{ wezterm_keymap_scrollback_page_up.mod }}', action = act.ScrollByPage(-1) },
+    { key = '{{ wezterm_keymap_scrollback_page_down.key }}', mods = '{{ wezterm_keymap_scrollback_page_down.mod }}', action = act.ScrollByPage(1) },
+
+    -- Copy/Paste
+
+    { key = '{{ wezterm_keymap_copy_sel_to_clipboard.key }}', mods = '{{ wezterm_keymap_copy_sel_to_clipboard.mod }}', action = act.CopyTo 'ClipboardAndPrimarySelection' },
+    { key = '{{ wezterm_keymap_paste_from_clipboard.key }}', mods = '{{ wezterm_keymap_paste_from_clipboard.mod }}', action = act.PasteFrom 'Clipboard' },
+
+    -- Font Sizes
+
+    { key = '{{ wezterm_keymap_inc_font_size.key }}', mods = '{{ wezterm_keymap_inc_font_size.mod }}', action = act.IncreaseFontSize },
+    { key = '{{ wezterm_keymap_dec_font_size.key }}', mods = '{{ wezterm_keymap_dec_font_size.mod }}', action = act.DecreaseFontSize },
+    { key = '{{ wezterm_keymap_reset_font_size.key }}', mods = '{{ wezterm_keymap_reset_font_size.mod }}', action = act.ResetFontSize },
+
     -- Tabs
 
     { key = '{{ wezterm_keymap_create_new_tab.key }}', mods = '{{ wezterm_keymap_create_new_tab.mod }}', action = act.SpawnTab 'CurrentPaneDomain' },
@@ -241,7 +326,6 @@ return {
     { key = '{{ wezterm_keymap_prev_tab.key }}', mods = '{{ wezterm_keymap_prev_tab.mod }}', action = act.ActivateTabRelative(-1) },
     { key = '{{ wezterm_keymap_move_tab_right.key }}', mods = '{{ wezterm_keymap_move_tab_right.mod }}', action = act.MoveTabRelative(1) },
     { key = '{{ wezterm_keymap_move_tab_left.key }}', mods = '{{ wezterm_keymap_move_tab_left.mod }}', action = act.MoveTabRelative(-1) },
-    { key = '{{ wezterm_keymap_kill_pane_or_tab.key }}', mods = '{{ wezterm_keymap_kill_pane_or_tab.mod }}', action = act.CloseCurrentTab{ confirm = false } },
 
     -- Panes
 
@@ -253,22 +337,9 @@ return {
     { key = '{{ wezterm_keymap_switch_pane_below.key }}', mods = '{{ wezterm_keymap_switch_pane_below.mod }}', action = act.ActivatePaneDirection 'Down' },
     { key = '{{ wezterm_keymap_toggle_pane_fullscreen.key }}', mods = '{{ wezterm_keymap_toggle_pane_fullscreen.mod }}', action = act.TogglePaneZoomState },
 
-    -- Font Sizes
+    -- Enter Copy Mode
 
-    { key = '{{ wezterm_keymap_inc_font_size.key }}', mods = '{{ wezterm_keymap_inc_font_size.mod }}', action = act.IncreaseFontSize },
-    { key = '{{ wezterm_keymap_dec_font_size.key }}', mods = '{{ wezterm_keymap_dec_font_size.mod }}', action = act.DecreaseFontSize },
-    { key = '{{ wezterm_keymap_reset_font_size.key }}', mods = '{{ wezterm_keymap_reset_font_size.mod }}', action = act.ResetFontSize },
-
-    -- Copy/Paste
-
-    { key = '{{ wezterm_keymap_copy_sel_to_clipboard.key }}', mods = '{{ wezterm_keymap_copy_sel_to_clipboard.mod }}', action = act.CopyTo 'ClipboardAndPrimarySelection' },
-    { key = '{{ wezterm_keymap_paste_from_clipboard.key }}', mods = '{{ wezterm_keymap_paste_from_clipboard.mod }}', action = act.PasteFrom 'Clipboard' },
-
-    -- Screen And Scrollback
-
-    { key = '{{ wezterm_keymap_scrollback_page_up.key }}', mods = '{{ wezterm_keymap_scrollback_page_up.mod }}', action = act.ScrollByPage(-1) },
-    { key = '{{ wezterm_keymap_scrollback_page_down.key }}', mods = '{{ wezterm_keymap_scrollback_page_down.mod }}', action = act.ScrollByPage(1) },
-    { key = '{{ wezterm_keymap_scrollback_clear.key }}', mods = '{{ wezterm_keymap_scrollback_clear.mod }}', action = act.ClearScrollback 'ScrollbackAndViewport' },
+    { key = '{{ wezterm_keymap_enter_copy_mode.key }}', mods = '{{ wezterm_keymap_enter_copy_mode.mod }}', action = act.ActivateCopyMode },
 
     -- Enter Quick-Select Mode
 
@@ -278,9 +349,9 @@ return {
 
     { key = '{{ wezterm_keymap_enter_search_mode.key }}', mods = '{{ wezterm_keymap_enter_search_mode.mod }}', action = act.Search 'CurrentSelectionOrEmptyString' },
 
-    -- Enter Copy Mode
+    -- Enter Char-Select Mode
 
-    { key = '{{ wezterm_keymap_enter_copy_mode.key }}', mods = '{{ wezterm_keymap_enter_copy_mode.mod }}', action = act.ActivateCopyMode },
+    { key = '{{ wezterm_keymap_enter_charselect_mode.key }}', mods = '{{ wezterm_keymap_enter_charselect_mode.mod }}', action = act.CharSelect },
 
   },
 
@@ -288,12 +359,12 @@ return {
 
     -- Keymaps In Search Mode
     search_mode = {
+      { key = '{{ wezterm_keymap_enter_search_mode.key }}', mods = '{{ wezterm_keymap_enter_search_mode.mod }}', action = act.CopyMode 'ClearPattern' },
       { key = '{{ wezterm_keymap_next_search_hit.key }}', mods = '{{ wezterm_keymap_next_search_hit.mod }}', action = act.CopyMode 'NextMatch' },
       { key = '{{ wezterm_keymap_prev_search_hit.key }}', mods = '{{ wezterm_keymap_prev_search_hit.mod }}', action = act.CopyMode 'PriorMatch' },
       { key = '{{ wezterm_keymap_next_search_page.key }}', mods = '{{ wezterm_keymap_next_search_page.mod }}', action = act.CopyMode 'NextMatchPage' },
       { key = '{{ wezterm_keymap_prev_search_page.key }}', mods = '{{ wezterm_keymap_prev_search_page.mod }}', action = act.CopyMode 'PriorMatchPage' },
       { key = '{{ wezterm_keymap_cycle_search_type.key }}', mods = '{{ wezterm_keymap_cycle_search_type.mod }}', action = act.CopyMode 'CycleMatchType' },
-      { key = '{{ wezterm_keymap_enter_search_mode.key }}', mods = '{{ wezterm_keymap_enter_search_mode.mod }}', action = act.CopyMode 'ClearPattern' },
       { key = '{{ wezterm_keymap_copy_search_hit_to_clipboard.key }}', mods = '{{ wezterm_keymap_copy_search_hit_to_clipboard.mod }}', action = act.CopyTo 'ClipboardAndPrimarySelection' },
       { key = '{{ wezterm_keymap_exit_search_mode.key }}', mods = '{{ wezterm_keymap_exit_search_mode.mod }}', action = act.CopyMode 'Close' },
     },

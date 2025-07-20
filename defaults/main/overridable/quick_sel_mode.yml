@@ -4,10 +4,16 @@
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 #   https://wezfurlong.org/wezterm/quickselect.html
 
-# on quick-select mode enter, it searches screen for this hard-coded pattern
-# NOTE: this pattern matches SHA-1 hashes
-wezterm_quick_select_search_pattern: '[0-9a-f]{7,40}'
+# if 'true', then only use the additional patterns defined below
+# Note: default patterns include urls, paths, hashes,  and IP addresses
+wezterm_quick_select_disable_default_patterns: 'false'
+
+# additional patterns to search for in quick-select mode
+wezterm_quick_select_additional_pattern_list: []
 
 # each search hit is overlayed with hint keys, for copying a hit to clipboard
 wezterm_quick_select_hint_keys: 'asdfjklgh'
+
+# remove default styling in quick-select, making quick-select text stand out
+wezterm_quick_select_remove_default_styling: 'true'
 

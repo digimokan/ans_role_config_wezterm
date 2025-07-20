@@ -1,0 +1,8 @@
+# behavior for showing toast notifications
+#   "AlwaysShow": always show, regardless of focus
+#   "SuppressFromFocusedPane": show, unless it was generated from focused pane
+#   "SuppressFromFocusedTab": show, unless it was generated from focused tab
+#   "SuppressFromFocusedWindow": show, unless it was generated from focused window
+#   "NeverShow":
+wezterm_toast_notification_behavior: 'AlwaysShow'
+

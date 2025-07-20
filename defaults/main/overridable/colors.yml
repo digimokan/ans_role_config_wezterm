@@ -3,15 +3,22 @@ wezterm_term_colors:
   text:
     fg: '#C6C6C6'
     fg_bright: '#D1C39E'
+    fg_hue_multiplier: 1.0
+    fg_saturation_multiplier: 1.0
+    fg_brightness_multiplier: 1.0
   background:
     bg: '#2B2B2B'
     opacity: 0.9
   cursor:
     fg_text: '#000000'
     bg: '#FF5F5F'
+    force_reverse_video: false
   selection:
     fg_text: '#000000'
     bg: '#BD861D'
+  alt_selection:
+    fg_text: '#3c3836'
+    bg: '#fabd2f'
   urls:
     fg_text: '#000000'
     bg: '#00B8C3'

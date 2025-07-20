@@ -11,3 +11,6 @@ wezterm_hide_mouse_pointer_when_typing: 'true'
 # when mouse pointer is over tab-bar, the mouse wheel can scroll through tabs
 wezterm_mouse_wheel_scrolls_tabs: 'false'
 
+# when true, clicking on unfocused pane focuses pane, without passing through click
+wezterm_mouse_focus_without_press: 'false'
+

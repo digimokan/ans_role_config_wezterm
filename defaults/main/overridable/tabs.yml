@@ -3,11 +3,27 @@
 #   https://wezfurlong.org/wezterm/config/keys.html
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 
+# whether to show tabs in tab bar (if false, just show left/right status areas)
+wezterm_show_tabs_in_tab_bar: 'true'
+
 # whether tab bar is placed at bottom or top of window
 wezterm_tab_bar_on_bottom: 'true'
 
-# show a (mouse-activated) button for "create-new-tab"
+# if there is only one tab, hide the tab bar
+wezterm_tab_bar_hide_if_single_tab: 'false'
+
+# show a (mouse-activated) buttons for "create-new-tab" or "close-tab"
 wezterm_show_new_tab_button: 'false'
+wezterm_show_close_tab_button: 'false'
+
+# show 0-based tab index if true, else show 1-based tab index if false
+wezterm_show_zero_based_tab_index: 'false'
+
+# show the tab index in the tab title
+wezterm_show_tab_index_in_tab_title: 'true'
+
+# on tab close, switch to prev-active-tab if true, or tab-to-left if false
+wezterm_switch_to_prev_active_tab_on_tab_close: 'false'
 
 # a command to run to get the current VCS branch, for tab-bar statusline
 wezterm_tab_bar_get_git_branch_cmd: "printf ''"

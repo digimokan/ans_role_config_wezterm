@@ -12,3 +12,6 @@ wezterm_scroll_to_bottom_on_keypress: 'true'
 # the scrollbar occupies the window-right-padding (or last col if padding is 0)
 wezterm_show_scrollbar: 'false'
 
+# minimum height of scrollbar, in terminal-cell-height
+wezterm_min_scrollbar_height: '0.5cell'
+

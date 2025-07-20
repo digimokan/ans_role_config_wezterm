@@ -1,5 +1,5 @@
-wezterm_keymap_kill_pane_or_tab: { mod: 'CTRL', key: 'x' }
-wezterm_keymap_scrollback_clear: { mod: 'CTRL', key: 'u' }
+wezterm_keymap_close_pane_or_tab: { mod: 'CTRL', key: 'x' }
+wezterm_keymap_clear_screen_and_scrollback_clear: { mod: 'CTRL', key: 'u' }
 
 wezterm_keymap_scrollback_page_up: { mod: 'SHIFT', key: 'PageUp' }
 wezterm_keymap_scrollback_page_down: { mod: 'SHIFT', key: 'PageDown' }
@@ -25,11 +25,11 @@ wezterm_keymap_switch_pane_above: { mod: 'CTRL', key: 'k' }
 wezterm_keymap_switch_pane_below: { mod: 'CTRL', key: 'j' }
 wezterm_keymap_toggle_pane_fullscreen: { mod: 'CTRL', key: 'y' }
 
-wezterm_keymap_enter_quick_select_mode: { mod: 'CTRL', key: 's' }
-
 wezterm_keymap_enter_copy_mode: { mod: 'CTRL', key: 'm' }
 
-wezterm_keymap_enter_search_mode: { mod: 'CTRL', key: 'f' }
+wezterm_keymap_enter_quick_select_mode: { mod: 'CTRL', key: 'e' }
+
+wezterm_keymap_enter_search_mode: { mod: 'CTRL', key: 's' }
 wezterm_keymap_next_search_hit: { mod: 'NONE', key: 'DownArrow' }
 wezterm_keymap_prev_search_hit: { mod: 'NONE', key: 'UpArrow' }
 wezterm_keymap_next_search_page: { mod: 'NONE', key: 'PageDown' }
@@ -37,4 +37,6 @@ wezterm_keymap_prev_search_page: { mod: 'NONE', key: 'PageUp' }
 wezterm_keymap_cycle_search_type: { mod: 'CTRL', key: 'r' }
 wezterm_keymap_copy_search_hit_to_clipboard: { mod: 'CTRL', key: 'c' }
 wezterm_keymap_exit_search_mode: { mod: 'NONE', key: 'Escape' }
+
+wezterm_keymap_enter_charselect_mode: { mod: 'NONE', key: 'p' }
 

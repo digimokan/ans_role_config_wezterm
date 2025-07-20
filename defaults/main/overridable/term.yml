@@ -2,3 +2,19 @@
 # docs say xterm-256color has good feature support without installing terminfo
 wezterm_term_env_var: 'xterm-256color'
 
+# comma-separated list of exit codes, determining "exit-wezterm-with-success"
+wezterm_term_success_exit_codes: "0"
+
+# what wezterm does when its shell process exits
+#   "Close": close wezterm, unconditionally
+#   "Hold": keep wezterm open, unconditionally, waiting for user to quit
+#   "CloseOnCleanExit": do "Hold" only if shell process exits with non-success
+wezterm_exit_behavior: "CloseOnCleanExit"
+
+# When wezterm is exiting with "Hold", display this type of message
+#   "Verbose": exit status, process name, and wezterm's explanation
+#   "Brief": exit status, and process name
+#   "Terse": exit status
+#   "None": no message
+wezterm_exit_hold_message: "Verbose"
+

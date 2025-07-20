@@ -6,12 +6,25 @@
 # main font-family
 wezterm_font_family: 'monospace'
 
-# font size, in integer or fractional
-wezterm_font_size: 13
+# font sizes, in integer or fractional
+wezterm_normal_font_size: 13
+wezterm_char_select_font_size: 18
 
-# if a unicode glyph overflows cell width, allow it to extend into next cell
-# NOTE: options are 'Always', 'Never', and 'WhenFollowedBySpace'
+# if a unicode glyph overflows cell width, allow it to extend into next cell:
+#   Always', 'Never', and 'WhenFollowedBySpace'
 wezterm_large_glyphs_can_take_up_two_cells: 'WhenFollowedBySpace'
+
+# if glyph cannot be found for a codepoint, show a warning
+wezterm_warn_on_missing_glyph: 'true'
+
+# whether to anti-alias "custom block glyphs"
+wezterm_anti_alias_custom_block_glyphs: 'true'
+
+# for bold text:
+#   "No": do nothing
+#   "BrightAndBold": brighten text and use bold font
+#   "BrightOnly": brighten text only
+wezterm_bold_text_handling: 'BrightAndBold'
 
 # if wezterm detects password input, it can show a lock icon in place of cursor
 wezterm_show_cursor_lock_when_password_input: 'true'

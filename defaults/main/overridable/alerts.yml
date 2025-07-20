@@ -3,5 +3,11 @@ wezterm_audio_bell_enable: false
 
 # if set > 0, a graphics ease-function is used to fade-in and fade-out
 # if set to 0, visual bell is disabled
-wezterm_visual_bell_fade_in_out_time_ms: 0
+wezterm_visual_bell_fade_in_time_ms: 150
+wezterm_visual_bell_fade_out_time_ms: 150
+
+# if fade_in/out time is set to > 0, set method of easing in/out:
+#   "Linear", "Ease", "EaseIn", "EaseOut", "Constant"
+wezterm_visual_bell_ease_in_method: "EaseIn"
+wezterm_visual_bell_ease_out_method: "EaseOut"
 

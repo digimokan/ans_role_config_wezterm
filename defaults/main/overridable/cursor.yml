@@ -5,3 +5,8 @@ wezterm_cursor_type: 'SteadyBlock'
 # if wezterm_cursor_type is blinking, this var sets the blink rate
 wezterm_cursor_blink_rate_ms: 800
 
+# if wezterm_cursor_type is blinking, set method of easing in/out:
+#   "Linear", "Ease", "EaseIn", "EaseOut", "Constant"
+wezterm_cursor_blink_ease_in_method: "Linear"
+wezterm_cursor_blink_ease_out_method: "Linear"
+

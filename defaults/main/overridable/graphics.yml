@@ -1,10 +1,19 @@
-# render with "Software" (CPU), or "OpenGL" / "WebGpu" (GPU)
+# render with "Software" (CPU), "OpenGL" (GPU) / "WebGpu" (GPU, Platform-Specific)
 wezterm_graphics_rendering_method: 'Software'
+
+# prefer use of EGL to access GPU
+wezterm_gpu_access_prefer_egl: 'true'
 
 # frame rate of easing effects for blink-cursor, blinking-text, visual-bell
 # NOTE: for CPU rendering, fps of 1 is recommended
 # NOTE: for GPU rendering, fps of 10 is the default
 wezterm_animation_fps_for_ease_effects: 1
+
+# max num frames per sec to draw (N/A for wayland)
+wezterm_max_fps: 60
+
+# select "RGB" or "BGR", based on your display's pixel geometry
+wezterm_display_pixel_geometry: 'RGB'
 
 # try to use wayland, if possible (if false, force X11 in wayland)
 wezterm_try_use_wayland: 'true'

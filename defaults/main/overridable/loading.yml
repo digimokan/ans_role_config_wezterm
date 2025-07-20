@@ -1,3 +1,10 @@
 # whether wezterm watches config file and reloads automatically on change
 wezterm_auto_reload_on_config_file_change: 'false'
 
+# Default commands (i.e. first args to "wezterm" on CLI)
+# See "Commands" in https://wezterm.org/cli/general.html#synopsis
+wezterm_default_cli_commands_list: [ 'start' ]
+
+# if able to connect to already-running wezterm instance, spawn new as tab
+wezterm_perfer_spawn_new_instance_as_tab: 'false'
+
