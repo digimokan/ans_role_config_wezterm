@@ -300,7 +300,7 @@ return {
 
     -- General
 
-    { key = '{{ wezterm_keymap_close_pane_or_tab.key }}', mods = '{{ wezterm_keymap_close_pane_or_tab.mod }}', action = act.CloseCurrentTab{ confirm = false } },
+    { key = '{{ wezterm_keymap_close_pane_or_tab.key }}', mods = '{{ wezterm_keymap_close_pane_or_tab.mod }}', action = act.CloseCurrentPane{ confirm = false } },
     { key = '{{ wezterm_keymap_clear_screen_and_scrollback_clear.key }}', mods = '{{ wezterm_keymap_clear_screen_and_scrollback_clear.mod }}', action = act.ClearScrollback 'ScrollbackAndViewport' },
 
     -- Screen And Scrollback
