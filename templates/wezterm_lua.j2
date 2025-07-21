@@ -169,6 +169,9 @@ return {
 
     visual_bell = '{{ wezterm_term_colors.visual_bell.bg }}',
 
+    quick_select_match_bg = { Color = '{{ wezterm_term_colors.alt_selection.bg }}' },
+    quick_select_match_fg = { Color = '{{ wezterm_term_colors.alt_selection.fg_text }}' },
+
     tab_bar = {
 
       background = '{{ wezterm_term_colors.status_area.bg }}',
@@ -196,8 +199,6 @@ return {
   },
   char_select_bg_color = '{{ wezterm_term_colors.alt_selection.bg }}',
   char_select_fg_color = '{{ wezterm_term_colors.alt_selection.fg_text }}',
-  quick_select_match_bg = '{{ wezterm_term_colors.alt_selection.bg }}',
-  quick_select_match_fg = '{{ wezterm_term_colors.alt_selection.fg_text }}',
   force_reverse_video_cursor = {{ wezterm_term_colors.cursor.force_reverse_video }},
   window_background_opacity = {{ wezterm_term_colors.background.opacity }},
 
