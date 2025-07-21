@@ -11,7 +11,7 @@ wezterm_keymap_inc_font_size: { mod: 'CTRL', key: '=' }
 wezterm_keymap_dec_font_size: { mod: 'CTRL', key: '-' }
 wezterm_keymap_reset_font_size: { mod: 'CTRL', key: '0' }
 
-wezterm_keymap_create_new_tab: { mod: 'CTRL', key: 't' }
+wezterm_keymap_create_new_tab: { mod: 'CTRL', key: 'n' }
 wezterm_keymap_next_tab: { mod: 'CTRL', key: '.' }
 wezterm_keymap_prev_tab: { mod: 'CTRL', key: ',' }
 wezterm_keymap_move_tab_right: { mod: 'SHIFT|CTRL', key: '>' }
@@ -38,5 +38,5 @@ wezterm_keymap_cycle_search_type: { mod: 'CTRL', key: 'r' }
 wezterm_keymap_copy_search_hit_to_clipboard: { mod: 'CTRL', key: 'c' }
 wezterm_keymap_exit_search_mode: { mod: 'NONE', key: 'Escape' }
 
-wezterm_keymap_enter_charselect_mode: { mod: 'NONE', key: 'p' }
+wezterm_keymap_enter_charselect_mode: { mod: 'CTRL', key: 'p' }
 
