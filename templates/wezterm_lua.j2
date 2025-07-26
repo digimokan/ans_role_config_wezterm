@@ -3,54 +3,38 @@
 -- Upstream Refs: https://wezfurlong.org/wezterm/config/lua/general.html
 
 --------------------------------------------------------------------------------
--- TAB-BAR "STATUS-LINE" AREAS
+-- TAB-BAR LEFT / RIGHT STATUS AREAS
 --------------------------------------------------------------------------------
 
 local wezterm = require 'wezterm'
 
 wezterm.on('update-status', function(window, pane)
-  -- get the pane working dir and hostname
-  local cwd = 'none'
-  local full_hostname = ''
+  -- set the user@host text on right side of tab bar
   local cwd_uri = pane:get_current_working_dir()
-  if cwd_uri then
-    cwd_uri = cwd_uri:sub(8);
-    local slash = cwd_uri:find('/')
-    if slash then
-      full_hostname = cwd_uri:sub(1, slash-1)
-      cwd = cwd_uri:sub(slash)
-    end
-  end
-
-  -- set the current git branch, or empty string if not in git repo
-  -- luacheck:ignore 211 (unused variable)
-  local success, stdout, stderr = wezterm.run_child_process { '{{ wezterm_tab_bar_get_git_branch_cmd }}', cwd }
-  local git_branch = ''
-  if success then
-    git_branch = ' ' .. '{{ wezterm_vcs_tree_icon }}' .. ' ' .. stdout .. ' '
-  end
-
-  -- set the user_at_host text
-  local home_dir_path = wezterm.home_dir
-  local user_login_name = home_dir_path:match('/%w+$')
-  user_login_name = user_login_name:sub(2)
-  user_at_host = ' ' .. user_login_name .. '@' .. full_hostname
-
-  -- print and style git branch in left side of tab-bar (just left of tabs)
-  window:set_left_status(wezterm.format {
-    { Foreground = { Color = '{{ wezterm_term_colors.status_vcs_branch.fg_text }}' } },
-    { Background = { Color = '{{ wezterm_term_colors.status_vcs_branch.bg }}' } },
-    { Attribute = { Intensity = 'Bold' } },
-    { Text = git_branch },
-    'ResetAttributes',
-  })
-
-  -- print and style user@full_hostname in right side of tab-bar
+  local hostname = cwd_uri.host or wezterm.hostname()
   window:set_right_status(wezterm.format {
     { Foreground = { Color = '{{ wezterm_term_colors.status_user_at_host.fg_text }}' } },
     { Background = { Color = '{{ wezterm_term_colors.status_user_at_host.bg }}' } },
     { Attribute = { Intensity = 'Bold' } },
-    { Text = user_at_host },
+    { Text = ' ' .. hostname .. ' ' },
+    'ResetAttributes',
+  })
+
+  -- set the git branch text on left side of tab bar
+  -- luacheck:ignore 211 (unused variable)
+  local gitbr_success, gitbr_stdout, gitbr_stderr = wezterm.run_child_process({
+    '{{ wezterm_tab_bar_get_git_branch_cmd }}',
+    cwd_uri.file_path
+  })
+  local git_branch_text = ''
+  if gitbr_success then
+    git_branch_text = ' ' .. gitbr_stdout .. ' '
+  end
+  window:set_left_status(wezterm.format {
+    { Foreground = { Color = '{{ wezterm_term_colors.status_vcs_branch.fg_text }}' } },
+    { Background = { Color = '{{ wezterm_term_colors.status_vcs_branch.bg }}' } },
+    { Attribute = { Intensity = 'Bold' } },
+    { Text = git_branch_text },
     'ResetAttributes',
   })
 end)
@@ -204,8 +188,8 @@ config.window_frame = {
 -- tab-title: make sure last char and first char in printed title are spaces
 wezterm.on('format-tab-title', function(tab, tabs, panes, cfg, hover, max_width)
   -- inactive tab bg/fg
-  local middle_cells_background =  '{{ wezterm_term_colors.status_inactive_tabs.bg }}'
-  local middle_cells_foreground =  '{{ wezterm_term_colors.status_inactive_tabs.fg_text }}'
+  local middle_cells_background = '{{ wezterm_term_colors.status_inactive_tabs.bg }}'
+  local middle_cells_foreground = '{{ wezterm_term_colors.status_inactive_tabs.fg_text }}'
 
   -- active tab bg/fg
   if tab.is_active then
