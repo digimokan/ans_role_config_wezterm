@@ -55,12 +55,6 @@ wezterm.on('update-status', function(window, pane)
   })
 end)
 
--- tab-title: make sure last char and first char in printed title are spaces
-wezterm.on('format-tab-title', function(tab, tabs, panes, cfg, hover, max_width)
- local title = wezterm.truncate_right(tab.active_pane.title, max_width - 2)
- return ' ' .. title .. ' '
-end)
-
 --------------------------------------------------------------------------------
 -- CONFIG BUILDER
 --------------------------------------------------------------------------------
@@ -175,6 +169,8 @@ config.colors = {
   quick_select_match_bg = { Color = '{{ wezterm_term_colors.alt_selection.bg }}' },
   quick_select_match_fg = { Color = '{{ wezterm_term_colors.alt_selection.fg_text }}' },
 
+  -- NOTE: this is RETRO tab bar, when use_fancy_tab_bar is false
+  -- See window_frame for FANCY tab bar
   tab_bar = {
 
     background = '{{ wezterm_term_colors.status_area.bg }}',
@@ -191,9 +187,53 @@ config.colors = {
       intensity = 'Bold',
     },
 
-  }, -- tab_bar
+  }, -- tab_bar (RETRO)
 
 } -- colors
+
+-- NOTE: this is FANCY tab bar, when use_fancy_tab_bar is true
+-- See colors.tab_bar for RETRO tab bar
+config.window_frame = {
+  font = wezterm.font '{{ wezterm_font_family }}',
+  font_size = {{ wezterm_tab_bar_font_size }},
+  -- NOTE: active vs inactive is tab-bar focused or unfocused
+  inactive_titlebar_bg = '{{ wezterm_term_colors.status_area.bg }}',
+  active_titlebar_bg = '{{ wezterm_term_colors.status_area.bg }}',
+
+
+  --   testing..............................................................
+  -- inactive_titlebar_fg = '#cccccc',
+  -- active_titlebar_fg = '#ffffff',
+} -- window_frame (FANCY tab-bar)
+
+-- tab-title: make sure last char and first char in printed title are spaces
+wezterm.on('format-tab-title', function(tab, tabs, panes, cfg, hover, max_width)
+  -- inactive tab bg/fg
+  local middle_cells_background =  '{{ wezterm_term_colors.status_inactive_tabs.bg }}'
+  local middle_cells_foreground =  '{{ wezterm_term_colors.status_inactive_tabs.fg_text }}'
+
+  -- active tab bg/fg
+  if tab.is_active then
+    middle_cells_background ='{{ wezterm_term_colors.status_active_tab.bg }}'
+    middle_cells_foreground =  '{{ wezterm_term_colors.status_active_tab.fg_text }}'
+  end
+
+  -- first and last cell/char of active or inactive tab
+  local edge_cell_background = '{{ wezterm_term_colors.status_area.bg }}'
+  local edge_cell_foreground = middle_cells_background
+
+  return {
+    { Background = { Color = edge_cell_background } },
+    { Foreground = { Color = edge_cell_foreground } },
+    { Text = wezterm.nerdfonts.pl_right_hard_divider },
+    { Background = { Color = middle_cells_background } },
+    { Foreground = { Color = middle_cells_foreground } },
+    { Text = tab.active_pane.title },
+    { Background = { Color = edge_cell_background } },
+    { Foreground = { Color = edge_cell_foreground } },
+    { Text = wezterm.nerdfonts.pl_left_hard_divider },
+  }
+end) -- on format-tab-title
 
 config.foreground_text_hsb = {
   hue = {{ wezterm_term_colors.text.fg_hue_multiplier }},
@@ -210,10 +250,10 @@ config.window_background_opacity = {{ wezterm_term_colors.background.opacity }}
 --------------------------------------------------------------------------------
 
 config.enable_tab_bar = true
+config.use_fancy_tab_bar = {{ wezterm_use_fancy_tab_bar }}
 config.show_tabs_in_tab_bar = {{ wezterm_show_tabs_in_tab_bar }}
-config.hide_tab_bar_if_only_one_tab = {{ wezterm_tab_bar_hide_if_single_tab }}
-config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = {{ wezterm_tab_bar_on_bottom }}
+config.hide_tab_bar_if_only_one_tab = {{ wezterm_tab_bar_hide_if_single_tab }}
 config.show_new_tab_button_in_tab_bar = {{ wezterm_show_new_tab_button }}
 config.show_close_tab_button_in_tabs = {{ wezterm_show_close_tab_button }}
 config.tab_and_split_indices_are_zero_based = {{ wezterm_show_zero_based_tab_index }}

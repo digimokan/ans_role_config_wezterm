@@ -8,6 +8,7 @@ wezterm_font_family: 'monospace'
 
 # font sizes, in integer or fractional
 wezterm_normal_font_size: 13
+wezterm_tab_bar_font_size: 14
 wezterm_char_select_font_size: 18
 
 # if a unicode glyph overflows cell width, allow it to extend into next cell:

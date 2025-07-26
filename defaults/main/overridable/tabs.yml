@@ -3,6 +3,9 @@
 #   https://wezfurlong.org/wezterm/config/keys.html
 #   https://wezfurlong.org/wezterm/config/lua/keyassignment/index.html
 
+# fancy vs retro tab bar: different appearance and config options
+wezterm_use_fancy_tab_bar: 'true'
+
 # whether to show tabs in tab bar (if false, just show left/right status areas)
 wezterm_show_tabs_in_tab_bar: 'true'
 
