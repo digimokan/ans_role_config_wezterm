@@ -194,16 +194,11 @@ config.colors = {
 -- NOTE: this is FANCY tab bar, when use_fancy_tab_bar is true
 -- See colors.tab_bar for RETRO tab bar
 config.window_frame = {
-  font = wezterm.font '{{ wezterm_font_family }}',
+  font = wezterm.font  { family = '{{ wezterm_font_family }}', weight = 'Bold' },
   font_size = {{ wezterm_tab_bar_font_size }},
   -- NOTE: active vs inactive is tab-bar focused or unfocused
   inactive_titlebar_bg = '{{ wezterm_term_colors.status_area.bg }}',
   active_titlebar_bg = '{{ wezterm_term_colors.status_area.bg }}',
-
-
-  --   testing..............................................................
-  -- inactive_titlebar_fg = '#cccccc',
-  -- active_titlebar_fg = '#ffffff',
 } -- window_frame (FANCY tab-bar)
 
 -- tab-title: make sure last char and first char in printed title are spaces
