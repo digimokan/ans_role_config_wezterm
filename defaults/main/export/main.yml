@@ -9,7 +9,6 @@ wezterm_arg_class: "--class "
 # arg to wezterm command to start wezterm in a specified directory
 wezterm_arg_starting_dir: "--cwd "
 
-# arg to wezterm command to execute a specific prog/cmd immediately on start
-# NOTE: make sure this arg goes last
+# arg to wezterm command to start execute a specific prog/cmd
 wezterm_arg_exec: "-- {{ wezterm_shell_cmd }} -c "
 
